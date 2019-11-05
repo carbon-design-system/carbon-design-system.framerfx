@@ -11,5 +11,10 @@
 	"framer": {
 		"id": "685229ad-b1bc-44a0-8ef1-5ca2ba8bf411"
 	},
-	"author": "Iain Kettles"
+	"author": "Iain Kettles",
+	"dependencies": {
+		"@carbon/icons-react": "^10.6.1",
+		"carbon-components": "^10.7.3",
+		"carbon-components-react": "^7.7.3"
+	}
 }
