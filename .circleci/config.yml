@@ -22,14 +22,9 @@ jobs:
       - run:
           command: |
 
-            # @TODO change to .tgz instead of apt install
-            sudo apt-get update || sudo-apt-get update
+            echo $PATH
 
-            # sudo apt-get -y install hub
-
-            cat /etc/apt/sources.list
-
-            which hub
+            curl https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz | tar zxvf
 
       - run:
           command: |
