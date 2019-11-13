@@ -23,9 +23,11 @@ jobs:
           command: |
 
             # @TODO change to .tgz instead of apt install
-            sudo apt update
+            sudo apt-get  update
 
-            sudo apt install hub
+            sudo apt-get install hub
+
+            which hub
 
       - run:
           command: |
