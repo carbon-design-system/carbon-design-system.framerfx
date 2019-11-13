@@ -47,7 +47,7 @@ jobs:
             # Check if a component importer configuration already exists
             if [ ! -f importer.config.json ]; then
               # Run component importer for the first time
-              npx component-importer init $LIBRARY_PACKAGE_NAME
+              npx @framerjs/component-importer init $LIBRARY_PACKAGE_NAME
 
               # Update flag to indicate if components were imported
               didImportComponents=true
@@ -62,7 +62,7 @@ jobs:
               # Check if response of dependency updates script is empty
               if [ -z "$updatedDependencies" ]; then
                 # Regenerate components
-                npx component-importer generate
+                npx @framerjs/component-importer generate
 
                 # Update flag to indicate if components were imported
                 didImportComponents=true
