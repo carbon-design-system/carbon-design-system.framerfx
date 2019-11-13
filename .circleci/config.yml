@@ -25,7 +25,9 @@ jobs:
             # @TODO change to .tgz instead of apt install
             sudo apt-get update || sudo-apt-get update
 
-            sudo apt-get -y install hub
+            # sudo apt-get -y install hub
+
+            cat /etc/apt/sources.list
 
             which hub
 
