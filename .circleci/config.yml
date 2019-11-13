@@ -3,12 +3,11 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2.1
-
 orbs:
-  git: compute/git@0.0.9
+  framer: cli-orb/framer@1.0.0
 
 jobs:
-  build:
+  component-import:
     docker:
       - image: circleci/node:10
 
@@ -19,13 +18,96 @@ jobs:
           fingerprints:
             - "${CI_GIT_USER_KEY_FINGERPRINT}"
       - checkout
+
       - run:
-          name: "Run tests"
           command: |
-            yarn global add yarn-pkg-version-diff
+
+            # @TODO change to .tgz instead of apt install
+            sudo apt update
+
+            sudo apt install hub
+
+      - run:
+          command: |
+            didImportComponents=false
+
+            # Checkout a new branch
+            hub checkout -b $BRANCH_NAME
+
+            # cd to Framer project directory
+            cd $FRAMER_PROJECT_PATH
+
+            # Check if a component importer configuration already exists
+            if [ ! -f importer.config.json ]; then
+              # Run component importer for the first time
+              component-importer init $LIBRARY_PACKAGE_NAME
+
+              # Update flag to indicate if components were imported
+              didImportComponents=true
+            else
+              # Store yarn.lock files in memory
+              previousYarnLock=$(cat temp/yarn.lock)
+              newYarnLock=$(cat $FRAMER_PROJECT_PATH/yarn.lock)
+
+              # Determine if there is dependency updates
+              updatedDependencies=$(npx yarn-pkg-version-diff $LIBRARY_PACKAGE_NAME $previousYarnLock $newYarnLock)
+
+              # Check if response of dependency updates script is empty
+              if [ -z "$updatedDependencies" ]; then
+                # Regenerate components
+                component-importer generate
+
+                # Update flag to indicate if components were imported
+                didImportComponents=true
+              fi
+            fi
+
+            # Check if components were imported and there were changes
+            if [["$didImportComponents" = true] && [ `git status --porcelain` ]]; then
+              # Stage all files for commit
+              hub add .
+
+              # Commit imported components
+              # @TODO - More descriptive commit message
+              hub commit -m "Re-imported components due to dependency update"
+
+              # Create pull request
+              # @TODO - More descriptive PR message
+              hub pull-request -m $BRANCH_NAME -p
+            else
+              echo "No changes found after running component importer, skipping PR creation"
+            fi
+
+      - run: echo Component Import logic every scheduled time.
 
 workflows:
   version: 2.1
-  master-commit:
+  # This step will run on a cron schedule, and see if there were
+  # any updates that were made to a dependency. If yes, then the
+  # component importer will run, adding the new changes to the
+  # Framer X file. Afterwards, a PR will be submitted to Github
+  # hourly-import-check:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 * * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - component-import
+
+  # This job will run any time there are changes that are merged
+  # to master. This will in turn publish these updates to the
+  # respective package in Framer X using the framer/cli orb
+  publish-master-branch:
     jobs:
-      - build
+      - component-import
+      # - framer/build:
+      #     filters:
+      #       branches:
+      #         only: master
+      # - framer/publish:
+      #     filters:
+      #       branches:
+      #         only: master
