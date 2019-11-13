@@ -22,9 +22,11 @@ jobs:
       - run:
           command: |
 
-            echo $PATH
+            curl -OL https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz && tar -zvxf hub-linux-amd64-2.13.0.tgz hub-linux-amd64-2.13.0/bin/hub
+            mv hub-linux-amd64-2.13.0/bin/hub /usr/local/bin/hub
 
-            curl https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz | tar zxvf
+            rm -f hub-linux-amd64-2.13.0.tgz
+            rm -rf hub-linux-amd64-2.13.0
 
       - run:
           command: |
