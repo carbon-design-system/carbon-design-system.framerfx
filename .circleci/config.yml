@@ -22,18 +22,24 @@ jobs:
       - run:
           command: |
 
-            curl -OL https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz && tar -zvxf hub-linux-amd64-2.13.0.tgz hub-linux-amd64-2.13.0/bin/hub
+            # @TODO - Fix installing hub. The debian image CircleCI uses doesn't seem to like installing hub so this is an interim solution
+
+            # Download archive of hub release
+            curl -OL https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz
+
+            # Decompress archive            
+            tar -zvxf hub-linux-amd64-2.13.0.tgz hub-linux-amd64-2.13.0/bin/hub
+
+            # Move to location in user's PATH
             sudo mv hub-linux-amd64-2.13.0/bin/hub /usr/local/bin/hub
 
+            # Clean up archive and artifacts
             rm -f hub-linux-amd64-2.13.0.tgz
             rm -rf hub-linux-amd64-2.13.0
 
       - run:
           command: |
             didImportComponents=false
-
-            # Checkout a new branch
-            hub checkout -b $BRANCH_NAME
 
             # cd to Framer project directory
             cd $FRAMER_PROJECT_PATH
@@ -65,6 +71,17 @@ jobs:
 
             # Check if components were imported and there were changes
             if [["$didImportComponents" = true] && [ `git status --porcelain` ]]; then
+              # @TODO - use the dependencies that were updated to create this branch name
+              BRANCH_NAME="framer-bridge/component-importer/random-branch-name"
+
+              # Check if the branch already exists
+              if [ -z $(hub rev-parse --verify --quiet $BRANCH_NAME) ]; then
+                hub checkout $BRANCH_NAME
+              else
+                # Checkout a new branch
+                hub checkout -b $BRANCH_NAME
+              fi
+
               # Stage all files for commit
               hub add .
 
