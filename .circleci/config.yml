@@ -90,6 +90,9 @@ jobs:
               # @TODO - More descriptive commit message
               hub commit -m "Re-imported components due to dependency update"
 
+              # Push to git
+              hub push origin HEAD
+
               # Create pull request if branch didn't already exist (PR will have been created if branch does exist)
               if [[ "$branchAlreadyExists" = false ]; then
                 # @TODO - More descriptive PR message
