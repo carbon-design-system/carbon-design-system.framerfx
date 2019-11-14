@@ -71,8 +71,7 @@ jobs:
 
             # Check if components were imported and there were changes
             if [["$didImportComponents" = true] && [ `git status --porcelain` ]]; then
-              # @TODO - use the dependencies that were updated to create this branch name
-              COMPONENT_IMPORTER_BRANCH_NAME="framer-bridge/component-importer/random-branch-name"
+              COMPONENT_IMPORTER_BRANCH_NAME="framer-bridge/component-importer"
 
               # Check if the branch already exists
               if [ -z $(hub rev-parse --verify --quiet $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
