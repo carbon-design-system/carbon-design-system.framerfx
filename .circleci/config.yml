@@ -72,10 +72,12 @@ jobs:
             # Check if components were imported and there were changes
             if [["$didImportComponents" = true] && [ `git status --porcelain` ]]; then
               COMPONENT_IMPORTER_BRANCH_NAME="framer-bridge/component-importer"
+              branchAlreadyExists=false
 
               # Check if the branch already exists
               if [ -z $(hub rev-parse --verify --quiet $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
                 hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
+                branchAlreadyExists=true
               else
                 # Checkout a new branch
                 hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
@@ -88,9 +90,11 @@ jobs:
               # @TODO - More descriptive commit message
               hub commit -m "Re-imported components due to dependency update"
 
-              # Create pull request
-              # @TODO - More descriptive PR message
-              hub pull-request -m $BRANCH_NAME -p
+              # Create pull request if branch didn't already exist (PR will have been created if branch does exist)
+              if [[ "$branchAlreadyExists" = false ]; then
+                # @TODO - More descriptive PR message
+                hub pull-request -m $BRANCH_NAME -p
+              fi
             else
               echo "No changes found after running component importer, skipping PR creation"
             fi
