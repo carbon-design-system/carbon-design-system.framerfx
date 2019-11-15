@@ -75,7 +75,7 @@ jobs:
             fi
 
             # Check if components were imported and there were changes
-            if [["$didImportComponents" = true] && [ `git status --porcelain` ]]; then
+            if [[ "$didImportComponents" = true ] && [ `git status --porcelain` ]]; then
               COMPONENT_IMPORTER_BRANCH_NAME="framer-bridge/component-importer"
               branchAlreadyExists=false
 
