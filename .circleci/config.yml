@@ -81,9 +81,11 @@ jobs:
 
               # Check if the branch already exists
               if [ -z $(hub rev-parse --verify --quiet $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
+                echo "Branch already exists"
                 hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
                 branchAlreadyExists=true
               else
+                echo "Branch does not exist"
                 # Checkout a new branch
                 hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
               fi
