@@ -47,7 +47,7 @@ jobs:
             # Check if a component importer configuration already exists
             if [ ! -f importer.config.json ]; then
               # Run component importer for the first time
-              npx @framerjs/component-importer@next init $LIBRARY_PACKAGE_NAME
+              npx @framerjs/component-importer@next init "$LIBRARY_PACKAGE_NAME" --mode plain
 
               # Update flag to indicate if components were imported
               didImportComponents=true
