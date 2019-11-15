@@ -88,7 +88,7 @@ jobs:
 
               # Commit imported components
               # @TODO - More descriptive commit message
-              hub commit -m "Re-imported components due to dependency update"
+              hub commit -m "Re-imported components due to dependency update [skip ci]"
 
               # Push to git
               hub push origin HEAD
