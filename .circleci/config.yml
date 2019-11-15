@@ -44,6 +44,15 @@ jobs:
             # cd to Framer project directory
             cd $FRAMER_PROJECT_PATH
 
+            # Store current yarn.lock in memory
+            previousYarnLock=$(cat yarn.lock)
+
+            # Install dependencies
+            yarn
+
+            # Store new yarn.lock in memory
+            newYarnLock=$(cat yarn.lock)
+
             # Check if a component importer configuration already exists
             if [ ! -f importer.config.json ]; then
               # Run component importer for the first time
@@ -52,10 +61,6 @@ jobs:
               # Update flag to indicate if components were imported
               didImportComponents=true
             else
-              # Store yarn.lock files in memory
-              previousYarnLock=$(cat temp/yarn.lock)
-              newYarnLock=$(cat $FRAMER_PROJECT_PATH/yarn.lock)
-
               # Determine if there is dependency updates
               updatedDependencies=$(npx yarn-pkg-version-diff $LIBRARY_PACKAGE_NAME $previousYarnLock $newYarnLock)
 
