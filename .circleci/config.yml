@@ -75,7 +75,7 @@ jobs:
             fi
 
             # Check if components were imported and there were changes
-            if [[ "$didImportComponents" = true ] && [ `git status --porcelain` ]]; then
+            if [ $didImportComponents = true ]; then
               COMPONENT_IMPORTER_BRANCH_NAME="framer-bridge/component-importer"
               branchAlreadyExists=false
 
@@ -99,7 +99,7 @@ jobs:
               hub push origin HEAD
 
               # Create pull request if branch didn't already exist (PR will have been created if branch does exist)
-              if [[ "$branchAlreadyExists" = false ]; then
+              if [ "$branchAlreadyExists" = false ; then
                 # @TODO - More descriptive PR message
                 hub pull-request -m $BRANCH_NAME -p
               fi
