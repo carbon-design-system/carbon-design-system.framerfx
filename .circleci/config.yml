@@ -80,7 +80,7 @@ jobs:
               branchAlreadyExists=false
 
               # Check if the branch already exists
-              if [ -z $(hub rev-parse --verify --quiet $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
+              if hub show-ref --quiet refs/heads/$COMPONENT_IMPORTER_BRANCH_NAME; then
                 echo "Branch already exists"
                 hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
                 branchAlreadyExists=true
