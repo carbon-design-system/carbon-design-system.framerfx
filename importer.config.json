@@ -1,0 +1,291 @@
+{
+    "mode": "plain",
+    "packageName": "carbon-components-react",
+    "include": "**/*.{js,jsx}",
+    "ignore": [
+        "**/node_modules/**",
+        "**/stories/**",
+        "**/__mocks__/**",
+        "**/__examples__/**",
+        "**/__tests__/**",
+        "**/__docs__/**",
+        "**/*.test.{js,jsx}",
+        "**/*-test.{js,jsx}",
+        "**/*.spec.{js,jsx}",
+        "**/*-spec.{js,jsx}"
+    ],
+    "additionalImports": [],
+    "out": "code/",
+    "components": {
+        "Accordion": {
+            "ignore": false
+        },
+        "AccordionSkeleton": {
+            "ignore": false
+        },
+        "AccordionItem": {
+            "ignore": false
+        },
+        "Breadcrumb": {
+            "ignore": false
+        },
+        "BreadcrumbItem": {
+            "ignore": false
+        },
+        "ButtonSkeleton": {
+            "ignore": false
+        },
+        "DangerButton": {
+            "ignore": false
+        },
+        "Table": {
+            "ignore": false
+        },
+        "TableBatchAction": {
+            "ignore": false
+        },
+        "TableBatchActions": {
+            "ignore": false
+        },
+        "TableBody": {
+            "ignore": false
+        },
+        "TableContainer": {
+            "ignore": false
+        },
+        "TableExpandHeader": {
+            "ignore": false
+        },
+        "TableExpandRow": {
+            "ignore": false
+        },
+        "TableExpandedRow": {
+            "ignore": false
+        },
+        "TableHeader": {
+            "ignore": false
+        },
+        "TableRow": {
+            "ignore": false
+        },
+        "TableSelectAll": {
+            "ignore": false
+        },
+        "TableSelectRow": {
+            "ignore": false
+        },
+        "TableToolbar": {
+            "ignore": false
+        },
+        "TableToolbarAction": {
+            "ignore": false
+        },
+        "TableToolbarSearch": {
+            "ignore": false
+        },
+        "TableToolbarMenu": {
+            "ignore": false
+        },
+        "DataTableSkeleton": {
+            "ignore": false
+        },
+        "DatePickerSkeleton": {
+            "ignore": false
+        },
+        "DropdownSkeleton": {
+            "ignore": false
+        },
+        "Filename": {
+            "ignore": false
+        },
+        "FileUploaderDropContainer": {
+            "ignore": false
+        },
+        "FileUploaderItem": {
+            "ignore": false
+        },
+        "Form": {
+            "ignore": false
+        },
+        "FormGroup": {
+            "ignore": false
+        },
+        "FormItem": {
+            "ignore": false
+        },
+        "FormLabel": {
+            "ignore": false
+        },
+        "Icon": {
+            "ignore": false
+        },
+        "IconSkeleton": {
+            "ignore": false
+        },
+        "InlineLoading": {
+            "ignore": false
+        },
+        "Link": {
+            "ignore": false
+        },
+        "ListBox": {
+            "ignore": false
+        },
+        "ListBoxField": {
+            "ignore": false
+        },
+        "ListBoxMenu": {
+            "ignore": false
+        },
+        "ListBoxMenuIcon": {
+            "ignore": false
+        },
+        "ListBoxMenuItem": {
+            "ignore": false
+        },
+        "ListBoxSelection": {
+            "ignore": false
+        },
+        "ListItem": {
+            "ignore": false
+        },
+        "a11yWarningIcon": {
+            "ignore": false
+        },
+        "NumberInputSkeleton": {
+            "ignore": false
+        },
+        "OrderedList": {
+            "ignore": false
+        },
+        "PrimaryButton": {
+            "ignore": false
+        },
+        "ProgressStep": {
+            "ignore": false
+        },
+        "SearchSkeleton": {
+            "ignore": false
+        },
+        "SearchFilterButton": {
+            "ignore": false
+        },
+        "SecondaryButton": {
+            "ignore": false
+        },
+        "SelectSkeleton": {
+            "ignore": false
+        },
+        "SelectItem": {
+            "ignore": false
+        },
+        "SelectItemGroup": {
+            "ignore": false
+        },
+        "SkeletonPlaceholder": {
+            "ignore": false
+        },
+        "SkeletonText": {
+            "ignore": false
+        },
+        "SliderSkeleton": {
+            "ignore": false
+        },
+        "StructuredListSkeleton": {
+            "ignore": false
+        },
+        "Switch": {
+            "ignore": false
+        },
+        "TabContent": {
+            "ignore": false
+        },
+        "Tag": {
+            "ignore": false
+        },
+        "TextArea": {
+            "ignore": false
+        },
+        "TextAreaSkeleton": {
+            "ignore": false
+        },
+        "PasswordInput": {
+            "ignore": false
+        },
+        "TextInputSkeleton": {
+            "ignore": false
+        },
+        "ToggleSmall": {
+            "ignore": false
+        },
+        "Toolbar": {
+            "ignore": false
+        },
+        "ToolbarItem": {
+            "ignore": false
+        },
+        "TooltipDefinition": {
+            "ignore": false
+        },
+        "TooltipIcon": {
+            "ignore": false
+        },
+        "Content": {
+            "ignore": false
+        },
+        "Header": {
+            "ignore": false
+        },
+        "HeaderContainer": {
+            "ignore": false
+        },
+        "HeaderGlobalAction": {
+            "ignore": false
+        },
+        "HeaderMenuButton": {
+            "ignore": false
+        },
+        "HeaderName": {
+            "ignore": false
+        },
+        "HeaderPanel": {
+            "ignore": false
+        },
+        "HeaderSideNavItems": {
+            "ignore": false
+        },
+        "SwitcherDivider": {
+            "ignore": false
+        },
+        "SkipToContent": {
+            "ignore": false
+        },
+        "SideNavDetails": {
+            "ignore": false
+        },
+        "SideNavFooter": {
+            "ignore": false
+        },
+        "SideNavHeader": {
+            "ignore": false
+        },
+        "SideNavIcon": {
+            "ignore": false
+        },
+        "SideNavItem": {
+            "ignore": false
+        },
+        "SideNavItems": {
+            "ignore": false
+        },
+        "SideNavLink": {
+            "ignore": false
+        },
+        "SideNavLinkText": {
+            "ignore": false
+        },
+        "UnorderedList": {
+            "ignore": false
+        }
+    }
+}
