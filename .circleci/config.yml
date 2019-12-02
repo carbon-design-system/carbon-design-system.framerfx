@@ -105,7 +105,7 @@ jobs:
               # Create pull request if branch didn't already exist (PR will have been created if branch does exist)
               if [ "$branchAlreadyExists" = false ]; then
                 # @TODO - More descriptive PR message
-                hub pull-request -m $BRANCH_NAME -p
+                hub pull-request -m $COMPONENT_IMPORTER_BRANCH_NAME -p
               fi
             fi
 
