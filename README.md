@@ -6,9 +6,11 @@ This repository aims to illustrate how all of these pieces work togther to provi
 
 ### Table of contents
 
-- Overview
-- Workflow
-- Getting started
+[Overview](#overview)
+
+[Workflow](#workflow)
+
+[Getting started](#getting-started)
 
 ## Overview
 
