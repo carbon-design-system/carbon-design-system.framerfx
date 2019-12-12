@@ -86,6 +86,8 @@ To get started, you'll need to make sure you have a few things first:
 - `git` initialized in the project.
 - `dependencies` from the Design System installed in the project.
 
+Inspect the structure of this project to get a good idea of what your setup should look like. You can also view the [Pull Request](https://github.com/iKettles/carbon-design-system.framerfx/pull/5) to see what the component importer generates for the components.
+
 ### Step by step:
 
 1. Open a new Framer X project, and save it as a [folder backed project](https://www.framer.com/support/using-framer-x/folder-backed-projects/).
