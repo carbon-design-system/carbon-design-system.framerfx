@@ -44,7 +44,7 @@ Automation is handled through [CircleCI Orbs](https://circleci.com/orbs/). There
 
 ## Workflow
 
-#### Import Components
+### Import Components
 
 The first step that occurs in the workflow is the importing of components. This is automatically run when the project is connected with circleCI, but can additionally run on it's own through the Component Importer
 
@@ -52,7 +52,7 @@ The first step that occurs in the workflow is the importing of components. This 
 
 The Component Importer will run, create the initial imported components under `/code` and the `importer.config.json` file.
 
-#### Determine Dependency Updates
+### Determine Dependency Updates
 
 To update the Framer projects autonomously when component libraries have been updated, we use a scheduled job and a small CLI to determine if any of the “targeted” dependencies have been updated. As certain Framer projects may rely on multiple component libraries you are able to provide a comma-separated list of NPM package names which are then taken into account when calculating a diff between the current `yarn.lock` file and the new one after running `yarn`.
 
@@ -64,7 +64,7 @@ If the process determines that some dependencies have been updated, we move onto
 
 If no dependencies have been updated the rest of the CI steps are skipped.
 
-#### Create Pull Request
+### Create Pull Request
 
 **Case**: Component importer finds and merges in new changes from the design system
 
