@@ -88,17 +88,17 @@ To get started, you'll need to make sure you have a few things first:
 
 ### Step by step:
 
-1. Open a new Framer X project, and save it as a folder backed project.
+1. Open a new Framer X project, and save it as a [folder backed project](https://www.framer.com/support/using-framer-x/folder-backed-projects/).
 1. Open your newly created `.framerfx` file in a code editor.
-1. Open a terminal in this directory, and `yarn add` the dependenceis to your design system. (i.e. `yarn add carbon-components carbon-components-react @carbon/icons-react`)
-1. intialize `git` and add your project. (i.e. `git init` / `git add .` / `git commit -m "initial commit"`)
-1. Add a folder in this directory called `.circleci`, and a file in this new folder called `config.yml`
-1. Copy and paste this [`config.yml`](https://github.com/iKettles/carbon-design-system.framerfx/blob/master/.circleci/config.yml) into your project
-1. Create a new repository on Github, and add the remote origin to your project (i.e. `git remote add origin git@github.com:iKettles/carbon-design-system.framerfx.git`). We reccomend keeping the name of the Github repository the same as the file name. (i.e. `carbon-design-system.framerfx`)
-1. Open this file in Framer X, and publish this file to Framer Packages. (There won't be any components at this point, but we'll come back to this.) Feel free to give this package a name, description, and artwork.
-1. Push your project from your local machine to Github. (i.e. `git push -u origin master`)
-1. Connect your Github repository to your CircleCI account, and select "Start Building". (The initial build will fail)
-1. Under CircleCI project settings, add in the necessary environment variables. See the table below to see which varibales are required, and details steps on where to find each one.
+1. Open a terminal in this directory, and [add the dependencies](https://www.framer.com/learn/lesson/install-packages-with-yarn/) to your design system. (i.e. `yarn add carbon-components carbon-components-react @carbon/icons-react`).
+1. intialize `git` and add your project. (i.e. `git init` / `git add .` / `git commit -m "initial commit"`).
+1. Add a folder in this directory called `.circleci`, and a file in this new folder called `config.yml`.
+1. Copy and paste this [`config.yml`](https://github.com/iKettles/carbon-design-system.framerfx/blob/master/.circleci/config.yml) into your project.
+1. Create a new repository on Github, and add the remote origin to your project (i.e. `git remote add origin git@github.com:iKettles/carbon-design-system.framerfx.git`). We reccomend keeping the name of the Github repository the same as the file name. (i.e. `carbon-design-system.framerfx`). See [this video](https://www.framer.com/learn/lesson/use-git-with-framer/) for an example.
+1. Open this file in Framer X, and[ publish this file](https://www.framer.com/support/using-framer-x/publishing-packages/) to Framer Packages. (There won't be any components at this point, but we'll come back to this.) Make sure you give this package a name, description, and artwork.
+1. Push your project from your local machine to Github. (i.e. `git push -u origin master`).
+1. Connect your Github repository to your CircleCI account, and select "Start Building". (The initial build will fail).
+1. Under CircleCI project settings, add in the necessary environment variables. See the [table](#circleci-environment-variables) below to see which varibales are required, and details steps on where to find each one.
 1. Re-run the CI workflow
 
 After successful completion of these steps, a PR should be made to the repository that contains all of the imported components. After merging this PR to amster, the components will automatically be added to Framer Packages, completing the cycle.
