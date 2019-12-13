@@ -3,8 +3,6 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2.1
-orbs:
-  framer: cli-orb/framer@1.0.0
 
 jobs:
   component-import:
@@ -111,6 +109,29 @@ jobs:
 
       - run: echo Component Import logic every scheduled time.
 
+  # Framer CLI build command
+  build:
+    docker:
+      - image: circleci/node:10
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: yarn
+      - run: npx framer-cli build $FRAMER_PROJECT_PATH
+
+  publish:
+    docker:
+      - image: circleci/node:10
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: yarn
+      - run: npx framer-cli publish $FRAMER_PROJECT_PATH --yes
+
 workflows:
   version: 2.1
   # This step will run on a cron schedule, and see if there were
@@ -130,14 +151,17 @@ workflows:
 
   # This job will run any time there are changes that are merged
   # to master. This will in turn publish these updates to the
-  # respective package in Framer X using the framer/cli orb
-  publish-master-branch:
+  # respective package in Framer X using the framer-cli jobs
+  build-and-publish:
     jobs:
-      - framer/build:
+      - build
           filters:
             branches:
               only: master
-      # - framer/publish:
+      # @TODO uncomment publish flow after package is published
+      # - publish:
+      #     requires:
+      #       - build
       #     filters:
       #       branches:
       #         only: master
