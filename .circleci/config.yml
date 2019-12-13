@@ -154,7 +154,7 @@ workflows:
   # respective package in Framer X using the framer-cli jobs
   build-and-publish:
     jobs:
-      - build
+      - build:
           filters:
             branches:
               only: master
