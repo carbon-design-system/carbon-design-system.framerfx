@@ -133,11 +133,10 @@ workflows:
   # respective package in Framer X using the framer/cli orb
   publish-master-branch:
     jobs:
-      # - component-import
-      # - framer/build:
-      #     filters:
-      #       branches:
-      #         only: master
+      - framer/build:
+          filters:
+            branches:
+              only: master
       # - framer/publish:
       #     filters:
       #       branches:
