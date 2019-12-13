@@ -115,5 +115,3 @@ After successful completion of these steps, a PR should be made to the repositor
 | `FRAMER_TOKEN`                | A token that verifies the the account the publish and build command will run under. You can generate a `FRAMER_TOKEN` by using the `authenticate` command from the [`framer-cli`](https://www.npmjs.com/package/framer-cli)                     | `f063k553-137c-4185-bca2-23510a784dbld8`                        |
 | `GITHUB_TOKEN`                | Read / Write access so CircleCI can create Pull Requests when new changes are found in the Design System repository. This can be generated on Github under `User > Settings > Developer Settings > Personal access tokens > Generate New Token` | `d8x9f3d9k2x8m1s2t6`                                            |
 | `CI_GIT_USER_KEY_FINGERPRINT` | A fingerprint to be identified with when using CircleCI. This can be generated through CircleCI under `Project > Settings > Permissions > Checkout SSH Keys`.                                                                                   | `97:b9:11:7b:06:3f:3d:ec:10:ba`                                 |
-
-4
