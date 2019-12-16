@@ -82,7 +82,7 @@ jobs:
               hub config --global user.name "Framer Bridge Component Importer"
 
               # Check if the branch already exists
-              if hub show-ref --quiet refs/heads/$COMPONENT_IMPORTER_BRANCH_NAME; then
+              if [ $(git branch -r | grep $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
                 echo "Component Importer Branch already exists, checking out"
                 hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
                 branchAlreadyExists=true
