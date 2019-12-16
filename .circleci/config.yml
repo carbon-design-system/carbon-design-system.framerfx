@@ -38,6 +38,7 @@ jobs:
       - run:
           command: |
             didImportComponents=false
+            branchAlreadyExists=false
 
             # cd to Framer project directory
             cd $FRAMER_PROJECT_PATH
@@ -50,6 +51,17 @@ jobs:
 
             # Store new yarn.lock in memory
             newYarnLock=$(cat yarn.lock)
+
+            # Check if the branch already exists
+            if [ $(git branch -r | grep $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
+              echo "Component Importer Branch already exists, checking out"
+              hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
+              branchAlreadyExists=true
+            else
+              echo "Component Importer Branch does not yet exist, creating"
+              # Checkout a new branch
+              hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
+            fi
 
             # Check if a component importer configuration already exists
             if [ ! -f importer.config.json ]; then
@@ -75,22 +87,10 @@ jobs:
             # Check if components were imported and there were changes
             if [ $didImportComponents = true ]; then
               COMPONENT_IMPORTER_BRANCH_NAME="framer-bridge/component-importer"
-              branchAlreadyExists=false
 
               # @TODO - set user.email/user.name based on environment variables
               hub config --global user.email "component-importer@framer-bridge.com"
               hub config --global user.name "Framer Bridge Component Importer"
-
-              # Check if the branch already exists
-              if [ $(git branch -r | grep $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
-                echo "Component Importer Branch already exists, checking out"
-                hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
-                branchAlreadyExists=true
-              else
-                echo "Component Importer Branch does not yet exist, creating"
-                # Checkout a new branch
-                hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
-              fi
 
               # Stage all files for commit
               hub add .
