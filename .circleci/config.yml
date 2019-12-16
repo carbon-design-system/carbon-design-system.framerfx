@@ -79,7 +79,7 @@ jobs:
             fi
 
             # Check if components were imported and there were changes
-            if [ -z "$(git status --porcelain)" ]; then
+            if [ ! -z "$(git status --porcelain)" ]; then
               echo "Components imported, committing to git"
 
               # @TODO - set user.email/user.name based on environment variables
