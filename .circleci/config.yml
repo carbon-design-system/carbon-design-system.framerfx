@@ -83,9 +83,11 @@ jobs:
 
               # Check if the branch already exists
               if hub show-ref --quiet refs/heads/$COMPONENT_IMPORTER_BRANCH_NAME; then
+                echo "Component Importer Branch already exists, checking out"
                 hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
                 branchAlreadyExists=true
               else
+                echo "Component Importer Branch does not yet exist, creating"
                 # Checkout a new branch
                 hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
               fi
