@@ -145,13 +145,6 @@ workflows:
     jobs:
       - component-import
 
-  debug-component-import:
-    jobs:
-      - component-import:
-          filters:
-            branches:
-              only: fix/ci-branch-behind-head
-
   # This job will run any time there are changes that are merged
   # to master. This will in turn publish these updates to the
   # respective package in Framer X using the framer-cli jobs
