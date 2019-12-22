@@ -134,16 +134,16 @@ workflows:
   # any updates that were made to a dependency. If yes, then the
   # component importer will run, adding the new changes to the
   # Framer X file. Afterwards, a PR will be submitted to Github
-  hourly-import-check:
-    triggers:
-      - schedule:
-          cron: "0 * * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - component-import
+  # hourly-import-check:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 * * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - component-import
 
   # This job will run any time there are changes that are merged
   # to master. This will in turn publish these updates to the
