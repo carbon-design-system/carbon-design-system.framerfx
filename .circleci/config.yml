@@ -65,7 +65,7 @@ jobs:
               # Run component importer for the first time
               npx @framerjs/component-importer@next init $COMPONENT_LIBRARY_PACKAGE --mode plain
 
-              if $COLOR_TOKEN_PATH then
+              if [ $COLOR_TOKEN_PATH ]; then
                 # Add color importer dependency
                 yarn global add https://github.com/tisho/framer-shared-colors-cli.git
               
@@ -82,7 +82,7 @@ jobs:
                 # Regenerate components
                 npx @framerjs/component-importer@next generate
               
-                if $COLOR_TOKEN_PATH then
+                if [ $COLOR_TOKEN_PATH ]; then
                   # Add color importer dependency
                   yarn global add https://github.com/tisho/framer-shared-colors-cli.git
                 
