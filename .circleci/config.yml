@@ -19,9 +19,6 @@ jobs:
 
       - run:
           command: |
-
-            # @TODO - Fix installing hub. The debian image CircleCI uses doesn't seem to like installing hub so this is an interim solution
-
             # Download archive of hub release
             curl -OL https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz
 
@@ -100,7 +97,7 @@ jobs:
               echo "Components imported, committing to git"
 
               # @TODO - set user.email/user.name based on environment variables
-              hub config --global user.email "component-importer@framer-bridge.com"
+              hub config --global user.email "component-importer@framer.com"
               hub config --global user.name "Framer Bridge Component Importer"
 
               # Stage all files for commit
@@ -151,16 +148,16 @@ workflows:
   # any updates that were made to a dependency. If yes, then the
   # component importer will run, adding the new changes to the
   # Framer X file. Afterwards, a PR will be submitted to Github
-  # hourly-import-check:
-  #   triggers:
-  #     - schedule:
-  #         cron: "0 * * * *"
-  #         filters:
-  #           branches:
-  #             only:
-  #               - master
-  #   jobs:
-  #     - component-import
+  hourly-import-check:
+    triggers:
+      - schedule:
+          cron: "0 8 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - component-import
 
   # This job will run any time there are changes that are merged
   # to master. This will in turn publish these updates to the
@@ -171,10 +168,9 @@ workflows:
           filters:
             branches:
               only: master
-      # @TODO uncomment publish flow after package is published
-      # - publish:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: master
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
