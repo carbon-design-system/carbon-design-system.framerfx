@@ -58,7 +58,7 @@ jobs:
               hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
               branchAlreadyExists=true
             else
-              echo "Component Importer Branch does not yet exist, creating"
+              echo "Component Importer Branch does not yet exist, creating new one"
               # Checkout a new branch
               hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
             fi
@@ -67,6 +67,15 @@ jobs:
             if [ ! -f importer.config.json ]; then
               # Run component importer for the first time
               npx @framerjs/component-importer@next init $COMPONENT_LIBRARY_PACKAGE --mode plain
+
+              if $COLOR_TOKEN_PATH then
+                # Add color importer dependency
+                yarn global add https://github.com/tisho/framer-shared-colors-cli.git
+              
+                # Run color importer for the first time
+                framer-shared-colors replace $COLOR_TOKEN_PATH $FRAMER_PROJECT_PATH/design/document.json
+              fi
+
             else
               # Determine if there is dependency updates
               updatedDependencies=$(npx yarn-pkg-version-diff $DEPENDANT_LIBRARIES $previousYarnLock $newYarnLock)
@@ -75,6 +84,14 @@ jobs:
               if [ -z "$updatedDependencies" ]; then
                 # Regenerate components
                 npx @framerjs/component-importer@next generate
+              
+                if $COLOR_TOKEN_PATH then
+                  # Add color importer dependency
+                  yarn global add https://github.com/tisho/framer-shared-colors-cli.git
+                
+                  # Rerun shared colors importer to merge new colors
+                  framer-shared-colors merge $COLOR_TOKEN_PATH $FRAMER_PROJECT_PATH/design/document.json
+                fi 
               fi
             fi
 
