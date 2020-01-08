@@ -148,7 +148,7 @@ workflows:
   # any updates that were made to a dependency. If yes, then the
   # component importer will run, adding the new changes to the
   # Framer X file. Afterwards, a PR will be submitted to Github
-  hourly-import-check:
+  daily-import:
     triggers:
       - schedule:
           cron: "0 8 * * *"
