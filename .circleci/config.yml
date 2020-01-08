@@ -19,9 +19,6 @@ jobs:
 
       - run:
           command: |
-
-            # @TODO - Fix installing hub. The debian image CircleCI uses doesn't seem to like installing hub so this is an interim solution
-
             # Download archive of hub release
             curl -OL https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz
 
@@ -58,7 +55,7 @@ jobs:
               hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
               branchAlreadyExists=true
             else
-              echo "Component Importer Branch does not yet exist, creating"
+              echo "Component Importer Branch does not yet exist, creating new one"
               # Checkout a new branch
               hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
             fi
@@ -67,6 +64,15 @@ jobs:
             if [ ! -f importer.config.json ]; then
               # Run component importer for the first time
               npx @framerjs/component-importer@next init $COMPONENT_LIBRARY_PACKAGE --mode plain
+
+              if [ $COLOR_TOKEN_PATH ]; then
+                # Add color importer dependency
+                yarn global add https://github.com/tisho/framer-shared-colors-cli.git
+              
+                # Run color importer for the first time
+                framer-shared-colors replace $COLOR_TOKEN_PATH $FRAMER_PROJECT_PATH/design/document.json
+              fi
+
             else
               # Determine if there is dependency updates
               updatedDependencies=$(npx yarn-pkg-version-diff $DEPENDANT_LIBRARIES $previousYarnLock $newYarnLock)
@@ -75,6 +81,14 @@ jobs:
               if [ -z "$updatedDependencies" ]; then
                 # Regenerate components
                 npx @framerjs/component-importer@next generate
+              
+                if [ $COLOR_TOKEN_PATH ]; then
+                  # Add color importer dependency
+                  yarn global add https://github.com/tisho/framer-shared-colors-cli.git
+                
+                  # Rerun shared colors importer to merge new colors
+                  framer-shared-colors merge $COLOR_TOKEN_PATH $FRAMER_PROJECT_PATH/design/document.json
+                fi 
               fi
             fi
 
@@ -83,7 +97,7 @@ jobs:
               echo "Components imported, committing to git"
 
               # @TODO - set user.email/user.name based on environment variables
-              hub config --global user.email "component-importer@framer-bridge.com"
+              hub config --global user.email "component-importer@framer.com"
               hub config --global user.name "Framer Bridge Component Importer"
 
               # Stage all files for commit
@@ -134,16 +148,16 @@ workflows:
   # any updates that were made to a dependency. If yes, then the
   # component importer will run, adding the new changes to the
   # Framer X file. Afterwards, a PR will be submitted to Github
-  # hourly-import-check:
-  #   triggers:
-  #     - schedule:
-  #         cron: "0 * * * *"
-  #         filters:
-  #           branches:
-  #             only:
-  #               - master
-  #   jobs:
-  #     - component-import
+  hourly-import-check:
+    triggers:
+      - schedule:
+          cron: "0 8 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - component-import
 
   # This job will run any time there are changes that are merged
   # to master. This will in turn publish these updates to the
@@ -154,10 +168,9 @@ workflows:
           filters:
             branches:
               only: master
-      # @TODO uncomment publish flow after package is published
-      # - publish:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: master
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
