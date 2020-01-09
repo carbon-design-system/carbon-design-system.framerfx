@@ -1,154 +1,14 @@
-# Javascript Node CircleCI 2.0 configuration file
+# Javascript Node CircleCI 2.1 configuration file
 #
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
 #
 version: 2.1
-
-jobs:
-  component-import:
-    docker:
-      - image: circleci/node:10
-
-    working_directory: ~/repo
-
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "${CI_GIT_USER_KEY_FINGERPRINT}"
-      - checkout
-
-      - run:
-          command: |
-            # Download archive of hub release
-            curl -OL https://github.com/github/hub/releases/download/v2.13.0/hub-linux-amd64-2.13.0.tgz
-
-            # Decompress archive            
-            tar -zvxf hub-linux-amd64-2.13.0.tgz hub-linux-amd64-2.13.0/bin/hub
-
-            # Move to location in user's PATH
-            sudo mv hub-linux-amd64-2.13.0/bin/hub /usr/local/bin/hub
-
-            # Clean up archive and artifacts
-            rm -f hub-linux-amd64-2.13.0.tgz
-            rm -rf hub-linux-amd64-2.13.0
-
-      - run:
-          command: |
-            COMPONENT_IMPORTER_BRANCH_NAME="framer-bridge/component-importer"
-            branchAlreadyExists=false
-
-            # cd to Framer project directory
-            cd $FRAMER_PROJECT_PATH
-
-            # Store current yarn.lock in memory
-            previousYarnLock=$(cat yarn.lock)
-
-            # Install dependencies
-            yarn
-
-            # Store new yarn.lock in memory
-            newYarnLock=$(cat yarn.lock)
-
-            # Check if the branch already exists
-            if [ $(git branch -r | grep $COMPONENT_IMPORTER_BRANCH_NAME) ]; then
-              echo "Component Importer Branch already exists, checking out"
-              hub checkout $COMPONENT_IMPORTER_BRANCH_NAME
-              branchAlreadyExists=true
-            else
-              echo "Component Importer Branch does not yet exist, creating new one"
-              # Checkout a new branch
-              hub checkout -b $COMPONENT_IMPORTER_BRANCH_NAME
-            fi
-
-            # Check if a component importer configuration already exists
-            if [ ! -f importer.config.json ]; then
-              # Run component importer for the first time
-              npx @framerjs/component-importer@next init $COMPONENT_LIBRARY_PACKAGE --mode plain
-
-              if [ $COLOR_TOKEN_PATH ]; then
-                # Add color importer dependency
-                yarn global add https://github.com/tisho/framer-shared-colors-cli.git
-              
-                # Run color importer for the first time
-                framer-shared-colors replace $COLOR_TOKEN_PATH $FRAMER_PROJECT_PATH/design/document.json
-              fi
-
-            else
-              # Determine if there is dependency updates
-              updatedDependencies=$(npx yarn-pkg-version-diff $DEPENDANT_LIBRARIES $previousYarnLock $newYarnLock)
-
-              # Check if response of dependency updates script is empty
-              if [ -z "$updatedDependencies" ]; then
-                # Regenerate components
-                npx @framerjs/component-importer@next generate
-              
-                if [ $COLOR_TOKEN_PATH ]; then
-                  # Add color importer dependency
-                  yarn global add https://github.com/tisho/framer-shared-colors-cli.git
-                
-                  # Rerun shared colors importer to merge new colors
-                  framer-shared-colors merge $COLOR_TOKEN_PATH $FRAMER_PROJECT_PATH/design/document.json
-                fi 
-              fi
-            fi
-
-            # Check if components were imported and there were changes
-            if [ ! -z "$(git status --porcelain)" ]; then
-              echo "Components imported, committing to git"
-
-              # @TODO - set user.email/user.name based on environment variables
-              hub config --global user.email "component-importer@framer.com"
-              hub config --global user.name "Framer Bridge Component Importer"
-
-              # Stage all files for commit
-              hub add .
-
-              # Commit imported components
-              # @TODO - More descriptive commit message
-              hub commit -m "Re-imported components due to dependency update [skip ci]"
-
-              # Push to git
-              hub push origin HEAD
-
-              # Create pull request if branch didn't already exist (PR will have been created if branch does exist)
-              if [ "$branchAlreadyExists" = false ]; then
-                # @TODO - More descriptive PR message
-                hub pull-request -m $COMPONENT_IMPORTER_BRANCH_NAME -p
-              fi
-            fi
-
-      - run: echo Component Import logic every scheduled time.
-
-  # Framer CLI build command
-  build:
-    docker:
-      - image: circleci/node:10
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-      - run: yarn
-      - run: npx framer-cli build $FRAMER_PROJECT_PATH
-
-  publish:
-    docker:
-      - image: circleci/node:10
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-      - run: yarn
-      - run: npx framer-cli publish $FRAMER_PROJECT_PATH --yes
+orbs:
+  framer: cli-orb/framer@1.6.0
 
 workflows:
   version: 2.1
-  # This step will run on a cron schedule, and see if there were
-  # any updates that were made to a dependency. If yes, then the
-  # component importer will run, adding the new changes to the
-  # Framer X file. Afterwards, a PR will be submitted to Github
-  daily-import:
+  build-project:
     triggers:
       - schedule:
           cron: "0 8 * * *"
@@ -157,20 +17,23 @@ workflows:
               only:
                 - master
     jobs:
-      - component-import
+      - framer/component-import:
+          component-library-package: "carbon-components-react"
+          dependant-libraries: "carbon-components-react,carbon-components,@carbon/icons-react"
+          framer-project-path: "./design-system.framerfx"
+          color-token-path: ""
 
-  # This job will run any time there are changes that are merged
-  # to master. This will in turn publish these updates to the
-  # respective package in Framer X using the framer-cli jobs
   build-and-publish:
     jobs:
-      - build:
+      - framer/build:
+          framer-project-path: "./design-system.framerfx"
           filters:
             branches:
               only: master
-      - publish:
+      - framer/publish:
+          framer-project-path: "./design-system.framerfx"
           requires:
-            - build
+            - framer/build
           filters:
             branches:
               only: master
