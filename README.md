@@ -28,6 +28,10 @@ On every subsequent import, the component importer will merge any new props with
 
 The Shared Color Importer is another _optional_ tool that will import all color tokens from a Design System into [Framer Shared Colors](https://www.framer.com/support/using-framer-x/shared-colors/). These colors can also be shipped through Framer Packages. See the docs for more information on using the colors importer on it's own.
 
+### [Icon Generator](https://github.com/iKettles/framer-svg-component-generator)
+
+The Icon generator is a piece that allows you to import a folder of `svg` icons into Framer. It will generate a simple Icon Component that lets you easily toggle between icons on the Framer canvas.
+
 ### [Yarn Package Differ](https://www.npmjs.com/package/yarn-pkg-version-diff)
 
 The Yarn Package Differ is the seccond tool that is used within this workflow.
@@ -100,6 +104,7 @@ Inspect the structure of this project to get a good idea of what your setup shou
 1. intialize `git` and add your project. (i.e. `git init` / `git add .` / `git commit -m "initial commit"`).
 1. Add a folder in this directory called `.circleci`, and a file in this new folder called `config.yml`.
 1. Copy and paste this [`config.yml`](https://github.com/iKettles/carbon-design-system.framerfx/blob/master/.circleci/config.yml) into your project.
+1. Add parameters to customize the CI to your setup. See the table at the bottom to see examples of accepted parameters. **All parameters can also optionally be set as environment variables.** See [here](#using-environment-variables-as-parameters) for examples of using environment variables for parameters.
 1. Create a new repository on Github, and add the remote origin to your project (i.e. `git remote add origin git@github.com:iKettles/carbon-design-system.framerfx.git`). We reccomend keeping the name of the Github repository the same as the file name. (i.e. `carbon-design-system.framerfx`). See [this video](https://www.framer.com/learn/lesson/use-git-with-framer/) for an example.
 1. Open this file in Framer X, and[ publish this file](https://www.framer.com/support/using-framer-x/publishing-packages/) to Framer Packages. (There won't be any components at this point, but we'll come back to this.) Make sure you give this package a name, description, and artwork.
 1. Push your project from your local machine to Github. (i.e. `git push -u origin master`).
@@ -111,12 +116,44 @@ After successful completion of these steps, a PR should be made to the repositor
 
 ### CircleCI Environment Variables
 
-| Variable                      | Description                                                                                                                                                                                                                                                                      | Example                                                         |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `COMPONENT_LIBRARY_PACKAGE`   | The name of the package to be imported. This should be the package where the components live.                                                                                                                                                                                    | `carbon-components-react`                                       |
-| `DEPENDANT_LIBRARIES`         | A comma-separated list of values that will be checked to see if changes occurred.                                                                                                                                                                                                | `carbon-components-react,carbon-components,@carbon/icons-react` |
-| `COLOR_TOKEN_PATH`            | The path to your color token file. See [here](https://github.com/tisho/framer-shared-colors-cli) for formatting information.                                                                                                                                                     | `./carbon-components-react/utils/colors.json`                   |
-| `FRAMER_PROJECT_PATH`         | The path to the Framer Project. <br><br>Set this to `./` if within the Framer Project itself.                                                                                                                                                                                    | `./`                                                            |
-| `FRAMER_TOKEN`                | A token that verifies the the account the publish and build command will run under. You can generate a `FRAMER_TOKEN` by using the `authenticate` command from the [`framer-cli`](https://www.npmjs.com/package/framer-cli)                                                      | `f063k553-137c-4185-bca2-23510a784dbld8`                        |
-| `GITHUB_TOKEN`                | Read / Write access so CircleCI can create Pull Requests when new changes are found in the Design System repository. This can be generated on Github under `User > Settings > Developer Settings > Personal access tokens > Generate New Token` Make sure to select repo access. | `d8x9f3d9k2x8m1s2t6`                                            |
-| `CI_GIT_USER_KEY_FINGERPRINT` | A fingerprint to be identified with when using CircleCI. This can be generated through CircleCI under `Project > Settings > Permissions > Checkout SSH Keys`.                                                                                                                    | `97:b9:11:7b:06:3f:3d:ec:10:ba`                                 |
+| Variable                      | Description                                                                                                                                                                                                                                                                      | Example                                  |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `FRAMER_TOKEN`                | A token that verifies the the account the publish and build command will run under. You can generate a `FRAMER_TOKEN` by using the `authenticate` command from the [`framer-cli`](https://www.npmjs.com/package/framer-cli)                                                      | `f063k553-137c-4185-bca2-23510a784dbld8` |
+| `GITHUB_TOKEN`                | Read / Write access so CircleCI can create Pull Requests when new changes are found in the Design System repository. This can be generated on Github under `User > Settings > Developer Settings > Personal access tokens > Generate New Token` Make sure to select repo access. | `d8x9f3d9k2x8m1s2t6`                     |
+| `CI_GIT_USER_KEY_FINGERPRINT` | A fingerprint to be identified with when using CircleCI. This can be generated through CircleCI under `Project > Settings > Permissions > Checkout SSH Keys`.                                                                                                                    | `97:b9:11:7b:06:3f:3d:ec:10:ba`          |
+
+### CircleCI Parameters
+
+| Parameter                   | Description                                                                                                                  | Example                                                         | Type     |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------- |
+| `COMPONENT_LIBRARY_PACKAGE` | The name of the package to be imported. This should be the package where the components live.                                | "carbon-components-react"                                       | `string` |
+| `DEPENDANT_LIBRARIES`       | A comma-separated list of values that will be checked to see if changes occurred.                                            | "carbon-components-react,carbon-components,@carbon/icons-react" | `string` |
+| `COLOR_TOKEN_PATH`          | The path to your color token file. See [here](https://github.com/tisho/framer-shared-colors-cli) for formatting information. | "./carbon-components-react/utils/colors.json"                   | `string` |
+| `FRAMER_PROJECT_PATH`       | The path to the Framer Project. <br><br>Set this to `./` if within the Framer Project itself.                                | "./"                                                            | `string` |
+
+### Using Environment Variables as Parameters
+
+If you'd like to stick to only using Environment variables, you'll need to set this in your `config.yml` file.
+
+<!-- prettier-ignore -->
+```yml
+...
+
+- framer/component-import:
+    component-library-package: $COMPONENT_LIBRARY_PACKAGE
+    dependant-libraries: $DEPENDANT_LIBRARIES 
+    framer-project-path: $FRAMER_PROJECT_PATH
+    color-token-path: $COLOR_TOKEN_PATH
+
+...
+
+- framer/build:
+    framer-project-path: $FRAMER_PROJECT_PATH
+
+...
+
+- framer/publish:
+    framer-project-path: $FRAMER_PROJECT_PATH
+
+...
+```
