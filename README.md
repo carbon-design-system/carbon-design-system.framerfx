@@ -124,16 +124,17 @@ After successful completion of these steps, a PR should be made to the repositor
 
 ### CircleCI Parameters
 
-| Parameter                   | Description                                                                                                                  | Example                                                         | Type     |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------- |
-| `COMPONENT_LIBRARY_PACKAGE` | The name of the package to be imported. This should be the package where the components live.                                | "carbon-components-react"                                       | `string` |
-| `DEPENDANT_LIBRARIES`       | A comma-separated list of values that will be checked to see if changes occurred.                                            | "carbon-components-react,carbon-components,@carbon/icons-react" | `string` |
-| `COLOR_TOKEN_PATH`          | The path to your color token file. See [here](https://github.com/tisho/framer-shared-colors-cli) for formatting information. | "./carbon-components-react/utils/colors.json"                   | `string` |
-| `FRAMER_PROJECT_PATH`       | The path to the Framer Project. <br><br>Set this to `./` if within the Framer Project itself.                                | "./"                                                            | `string` |
+| Parameter                   | Description                                                                                                                                     | Example                                                         | Type     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------- |
+| `component-library-package` | The name of the package to be imported. This should be the package where the components live.                                                   | "carbon-components-react"                                       | `string` |
+| `dependant-libraries`       | A comma-separated list of values that will be checked to see if changes occurred.                                                               | "carbon-components-react,carbon-components,@carbon/icons-react" | `string` |
+| `framer-project-path`       | The path to the Framer Project. <br><br>Set this to `./` if within the Framer Project itself.                                                   | "./"                                                            | `string` |
+| `color-token-path`          | The path to your color token json file. See [here](https://github.com/tisho/framer-shared-colors-cli) for formatting information.               | "./carbon-components-react/utils/colors.json"                   | `string` |
+| `icon-path`                 | The path to a folder of SVG icons. See [here](https://github.com/iKettles/framer-svg-component-generator) for formatting and usage information. | "./carbon-components-react/utils/icons"                         | `string` |
 
 ### Using Environment Variables as Parameters
 
-If you'd like to stick to only using Environment variables, you'll need to set this in your `config.yml` file.
+If you'd like to stick to only using Environment variables, you'll need to set this in your `config.yml` file, and make sure you add them to your CircleCI Settings.
 
 <!-- prettier-ignore -->
 ```yml
@@ -144,6 +145,7 @@ If you'd like to stick to only using Environment variables, you'll need to set t
     dependant-libraries: $DEPENDANT_LIBRARIES 
     framer-project-path: $FRAMER_PROJECT_PATH
     color-token-path: $COLOR_TOKEN_PATH
+    icon-path: $ICON_PATH
 
 ...
 
