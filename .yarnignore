@@ -5,3 +5,4 @@ Icon\r
 .config.json
 .backups
 .project.log
+.circleci/*
