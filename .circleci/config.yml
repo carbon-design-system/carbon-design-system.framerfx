@@ -20,18 +20,18 @@ workflows:
       - framer/component-import:
           component-library-package: "carbon-components-react"
           dependant-libraries: "carbon-components-react,carbon-components,@carbon/icons-react"
-          framer-project-path: "./design-system.framerfx"
+          framer-project-path: ""
           color-token-path: ""
 
   build-and-publish:
     jobs:
       - framer/build:
-          framer-project-path: "./design-system.framerfx"
+          framer-project-path: ""
           filters:
             branches:
               only: master
       - framer/publish:
-          framer-project-path: "./design-system.framerfx"
+          framer-project-path: ""
           requires:
             - framer/build
           filters:

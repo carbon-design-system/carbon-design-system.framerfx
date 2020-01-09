@@ -1,6 +1,6 @@
 {
-	"main": "dist/index.js",
 	"license": "MIT",
+	"main": "dist/index.js",
 	"devDependencies": {
 		"@types/react": "^16.8"
 	},
@@ -9,12 +9,14 @@
 		"react": "^16.8"
 	},
 	"framer": {
-		"id": "685229ad-b1bc-44a0-8ef1-5ca2ba8bf411"
+		"displayName": "Carbon Design System"
 	},
 	"author": "Iain Kettles",
 	"dependencies": {
 		"@carbon/icons-react": "^10.6.1",
 		"carbon-components": "^10.7.3",
 		"carbon-components-react": "^7.7.3"
-	}
+	},
+	"name": "@framer/framer.carbon-design-system",
+	"version": "1.0.0"
 }
