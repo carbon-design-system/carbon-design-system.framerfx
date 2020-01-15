@@ -34,8 +34,6 @@ The Icon generator is a piece that allows you to import a folder of `svg` icons 
 
 ### [Yarn Package Differ](https://www.npmjs.com/package/yarn-pkg-version-diff)
 
-The Yarn Package Differ is the seccond tool that is used within this workflow.
-
 Set to run on a scheduled basis, it runs a check against a design system, and returns a boolean to determine whether there have been changes or not within the design system.
 
 ### [Framer CLI](https://www.npmjs.com/package/framer-cli)
@@ -43,6 +41,10 @@ Set to run on a scheduled basis, it runs a check against a design system, and re
 The Framer CLI is the last tool in this workflow.
 
 It is responsible for publishing and delivering updates to the wider team through Framer Packages. Through this, users on your team can directly install design system components into a Framer project, and recieve updates as they occur.
+
+### [Doc Generation](https://github.com/addisonschultz/carbon-docs)
+
+In additon to generating a Framer project for your Design System, this workflow is also able to automatically generate a small interactive documentation site, which will let you prototype and test your compoennts in isolation. It will also gnereate a Framer X project you're able to open.
 
 ### [Automation](https://circleci.com/)
 
