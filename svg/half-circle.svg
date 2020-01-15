@@ -1,0 +1,4 @@
+<!-- Graphic -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+  <path d="M 80 50 C 80 66.569 66.569 80 50 80 C 33.431 80 20 66.569 20 50 Z" fill="hsl(1, 100%, 64%)"></path>
+</svg>

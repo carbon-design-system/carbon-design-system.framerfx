@@ -22,7 +22,7 @@ workflows:
           dependant-libraries: "carbon-components-react,carbon-components,@carbon/icons-react"
           framer-project-path: ""
           color-token-path: ""
-          icon-path: ""
+          icon-path: "./svg"
 
   build-and-publish:
     jobs:
