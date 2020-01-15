@@ -133,6 +133,7 @@ After successful completion of these steps, a PR should be made to the repositor
 | `framer-project-path`       | The path to the Framer Project. <br><br>Set this to `./` if within the Framer Project itself.                                                   | "./"                                                            | `string` |
 | `color-token-path`          | The path to your color token json file. See [here](https://github.com/tisho/framer-shared-colors-cli) for formatting information.               | "./carbon-components-react/utils/colors.json"                   | `string` |
 | `icon-path`                 | The path to a folder of SVG icons. See [here](https://github.com/iKettles/framer-svg-component-generator) for formatting and usage information. | "./carbon-components-react/utils/icons"                         | `string` |
+| `framer-package-name`       | The name of the package these components will be published under on Framer Packages.                                                            | "Carbon Design System"                                          | `string` |
 
 ### Using Environment Variables as Parameters
 
