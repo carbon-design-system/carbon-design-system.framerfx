@@ -33,6 +33,7 @@ workflows:
               only: master
       - framer/publish:
           framer-project-path: "./"
+          framer-package-name: "Carbon Design System"
           requires:
             - framer/build
           filters:
