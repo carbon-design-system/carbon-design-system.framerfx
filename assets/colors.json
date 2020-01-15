@@ -1,0 +1,9 @@
+{
+  "primary": "rgb(4, 153, 255)",
+  "secondary": "rgb(2, 210, 230)",
+  "success": "rgb(34, 204, 136)",
+  "warning": "rgb(255, 188, 0)",
+  "danger": "rgb(255, 74, 71)",
+  "black": "rgb(0, 0, 0)",
+  "white": "rgb(255, 255, 255)"
+}

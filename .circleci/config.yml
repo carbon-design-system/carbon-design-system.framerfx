@@ -20,19 +20,19 @@ workflows:
       - framer/component-import:
           component-library-package: "carbon-components-react"
           dependant-libraries: "carbon-components-react,carbon-components,@carbon/icons-react"
-          framer-project-path: ""
-          color-token-path: ""
+          framer-project-path: "./"
+          color-token-path: "./assets/colors.json"
           icon-path: "./svg"
 
   build-and-publish:
     jobs:
       - framer/build:
-          framer-project-path: ""
+          framer-project-path: "./"
           filters:
             branches:
               only: master
       - framer/publish:
-          framer-project-path: ""
+          framer-project-path: "./"
           requires:
             - framer/build
           filters:
