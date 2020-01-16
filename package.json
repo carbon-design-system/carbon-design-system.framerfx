@@ -9,8 +9,7 @@
 		"react": "^16.8"
 	},
 	"framer": {
-		"displayName": "Carbon Design System",
-		"id": "0edd3b62-7266-42cd-ad35-43cb16875fb2"
+		"displayName": "Carbon Design System"
 	},
 	"author": "Iain Kettles",
 	"dependencies": {
@@ -19,5 +18,5 @@
 		"carbon-components-react": "^7.7.3"
 	},
 	"name": "@framer/framer.carbon-design-system",
-	"version": "1.0.0"
+	"version": "1.13.0"
 }
