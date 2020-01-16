@@ -4,7 +4,7 @@
 #
 version: 2.1
 orbs:
-  framer: framer/bridge@dev:0.0.6
+  framer: framer/bridge@dev:0.0.9
 
 workflows:
   version: 2.1
