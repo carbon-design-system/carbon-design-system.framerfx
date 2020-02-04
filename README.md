@@ -144,7 +144,7 @@ If you'd like to stick to only using Environment variables, you'll need to set t
 ```yml
 ...
 
-- framer/component-import:
+- framer/import-components:
     component-library-package: $COMPONENT_LIBRARY_PACKAGE
     dependant-libraries: $DEPENDANT_LIBRARIES 
     framer-project-path: $FRAMER_PROJECT_PATH
