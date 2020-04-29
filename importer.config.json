@@ -29,10 +29,34 @@
         "Breadcrumb": {
             "ignore": false
         },
+        "BreadcrumbSkeleton": {
+            "ignore": false
+        },
         "BreadcrumbItem": {
             "ignore": false
         },
         "ButtonSkeleton": {
+            "ignore": false
+        },
+        "Checkbox": {
+            "ignore": false
+        },
+        "CheckboxSkeleton": {
+            "ignore": false
+        },
+        "CodeSnippet": {
+            "ignore": false
+        },
+        "CodeSnippetSkeleton": {
+            "ignore": false
+        },
+        "ModalBody": {
+            "ignore": false
+        },
+        "Copy": {
+            "ignore": false
+        },
+        "CopyButton": {
             "ignore": false
         },
         "DangerButton": {
@@ -98,6 +122,9 @@
         "Filename": {
             "ignore": false
         },
+        "FileUploaderSkeleton": {
+            "ignore": false
+        },
         "FileUploaderDropContainer": {
             "ignore": false
         },
@@ -114,6 +141,33 @@
             "ignore": false
         },
         "FormLabel": {
+            "ignore": false
+        },
+        "Column": {
+            "ignore": false
+        },
+        "autoColumns": {
+            "ignore": false
+        },
+        "responsiveGrid": {
+            "ignore": false
+        },
+        "offset": {
+            "ignore": false
+        },
+        "condensed": {
+            "ignore": false
+        },
+        "condensedColumns": {
+            "ignore": false
+        },
+        "fullWidth": {
+            "ignore": false
+        },
+        "Grid": {
+            "ignore": false
+        },
+        "Row": {
             "ignore": false
         },
         "Icon": {
@@ -149,7 +203,25 @@
         "ListItem": {
             "ignore": false
         },
+        "Loading": {
+            "ignore": false
+        },
         "a11yWarningIcon": {
+            "ignore": false
+        },
+        "NotificationActionButton": {
+            "ignore": false
+        },
+        "NotificationButton": {
+            "ignore": false
+        },
+        "NotificationTextDetails": {
+            "ignore": false
+        },
+        "ToastNotification": {
+            "ignore": false
+        },
+        "InlineNotification": {
             "ignore": false
         },
         "NumberInputSkeleton": {
@@ -158,10 +230,22 @@
         "OrderedList": {
             "ignore": false
         },
+        "PaginationSkeleton": {
+            "ignore": false
+        },
         "PrimaryButton": {
             "ignore": false
         },
         "ProgressStep": {
+            "ignore": false
+        },
+        "ProgressIndicatorSkeleton": {
+            "ignore": false
+        },
+        "RadioButtonSkeleton": {
+            "ignore": false
+        },
+        "RadioTile": {
             "ignore": false
         },
         "SearchSkeleton": {
@@ -171,6 +255,9 @@
             "ignore": false
         },
         "SecondaryButton": {
+            "ignore": false
+        },
+        "Select": {
             "ignore": false
         },
         "SelectSkeleton": {
@@ -200,7 +287,13 @@
         "TabContent": {
             "ignore": false
         },
+        "TabsSkeleton": {
+            "ignore": false
+        },
         "Tag": {
+            "ignore": false
+        },
+        "TagSkeleton": {
             "ignore": false
         },
         "TextArea": {
@@ -240,6 +333,9 @@
             "ignore": false
         },
         "HeaderGlobalAction": {
+            "ignore": false
+        },
+        "HeaderMenu": {
             "ignore": false
         },
         "HeaderMenuButton": {
@@ -282,6 +378,9 @@
             "ignore": false
         },
         "SideNavLinkText": {
+            "ignore": false
+        },
+        "SideNavMenu": {
             "ignore": false
         },
         "UnorderedList": {

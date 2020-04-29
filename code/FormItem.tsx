@@ -3,15 +3,15 @@ import * as System from "carbon-components-react"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
 
-const InnerFormItem = props => {
-    return <System.FormItem {...props}></System.FormItem>
+const InnerFormItem = (props) => {
+  return <System.FormItem {...props}></System.FormItem>
 }
 
-export const FormItem = withHOC(InnerFormItem)
+const FormItem = withHOC(InnerFormItem)
 
 FormItem.defaultProps = {
-    width: 150,
-    height: 50,
+  width: 150,
+  height: 50,
 }
 
 addPropertyControls(FormItem, {})
