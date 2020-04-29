@@ -3,26 +3,26 @@ import * as System from "carbon-components-react"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
 
-const InnerListBoxMenuItem = props => {
-    return <System.ListBoxMenuItem {...props}></System.ListBoxMenuItem>
+const InnerListBoxMenuItem = (props) => {
+  return <System.ListBoxMenuItem {...props}></System.ListBoxMenuItem>
 }
 
-export const ListBoxMenuItem = withHOC(InnerListBoxMenuItem)
+const ListBoxMenuItem = withHOC(InnerListBoxMenuItem)
 
 ListBoxMenuItem.defaultProps = {
-    width: 150,
-    height: 50,
+  width: 150,
+  height: 50,
 }
 
 addPropertyControls(ListBoxMenuItem, {
-    isActive: {
-        title: "Is active",
-        type: ControlType.Boolean,
-        defaultValue: false,
-    },
-    isHighlighted: {
-        title: "Is highlighted",
-        type: ControlType.Boolean,
-        defaultValue: false,
-    },
+  isActive: {
+    title: "Is active",
+    type: ControlType.Boolean,
+    defaultValue: false,
+  },
+  isHighlighted: {
+    title: "Is highlighted",
+    type: ControlType.Boolean,
+    defaultValue: false,
+  },
 })

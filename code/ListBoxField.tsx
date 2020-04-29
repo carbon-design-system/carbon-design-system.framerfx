@@ -3,25 +3,25 @@ import * as System from "carbon-components-react"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
 
-const InnerListBoxField = props => {
-    return <System.ListBoxField {...props}></System.ListBoxField>
+const InnerListBoxField = (props) => {
+  return <System.ListBoxField {...props}></System.ListBoxField>
 }
 
-export const ListBoxField = withHOC(InnerListBoxField)
+const ListBoxField = withHOC(InnerListBoxField)
 
 ListBoxField.defaultProps = {
-    width: 150,
-    height: 50,
+  width: 150,
+  height: 50,
 }
 
 addPropertyControls(ListBoxField, {
-    disabled: {
-        title: "Disabled",
-        type: ControlType.Boolean,
-        defaultValue: false,
-    },
-    tabIndex: {
-        title: "Tab index",
-        type: ControlType.String,
-    },
+  disabled: {
+    title: "Disabled",
+    type: ControlType.Boolean,
+    defaultValue: false,
+  },
+  tabIndex: {
+    title: "Tab index",
+    type: ControlType.String,
+  },
 })

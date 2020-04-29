@@ -2,16 +2,18 @@ import * as React from "react"
 import * as System from "carbon-components-react"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
+import { omitIrrelevantProps } from "./utils/props"
 
-const InnerListItem = props => {
-    return <System.ListItem {...props}></System.ListItem>
+const InnerListItem = (props) => {
+  const { ...rest } = omitIrrelevantProps(props)
+  return <System.ListItem {...rest}></System.ListItem>
 }
 
-export const ListItem = withHOC(InnerListItem)
+const ListItem = withHOC(InnerListItem)
 
 ListItem.defaultProps = {
-    width: 150,
-    height: 50,
+  width: 150,
+  height: 50,
 }
 
 addPropertyControls(ListItem, {})

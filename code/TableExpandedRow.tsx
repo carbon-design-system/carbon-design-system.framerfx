@@ -3,20 +3,20 @@ import * as System from "carbon-components-react"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
 
-const InnerTableExpandedRow = props => {
-    return <System.TableExpandedRow {...props}></System.TableExpandedRow>
+const InnerTableExpandedRow = (props) => {
+  return <System.TableExpandedRow {...props}></System.TableExpandedRow>
 }
 
-export const TableExpandedRow = withHOC(InnerTableExpandedRow)
+const TableExpandedRow = withHOC(InnerTableExpandedRow)
 
 TableExpandedRow.defaultProps = {
-    width: 150,
-    height: 50,
+  width: 150,
+  height: 50,
 }
 
 addPropertyControls(TableExpandedRow, {
-    colSpan: {
-        title: "Col span",
-        type: ControlType.Number,
-    },
+  colSpan: {
+    title: "Col span",
+    type: ControlType.Number,
+  },
 })
