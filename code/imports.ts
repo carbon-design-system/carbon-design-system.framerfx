@@ -1,1 +1,1 @@
-import "carbon-components/css/carbon-components.css"
+import "./carbon-components.css"
