@@ -1,26 +1,33 @@
 import * as React from "react"
 import * as System from "carbon-components-react"
-import { addPropertyControls, ControlType, Stack } from "framer"
+import { addPropertyControls, ControlType } from "framer"
 import { omitIrrelevantProps } from "./utils/props"
 
 export function Button(props) {
-  const { text, isLoading, ...rest } = omitIrrelevantProps(props)
+  const { text, isLoading, onTap, ...rest } = omitIrrelevantProps(props)
+
+  const onButtonTapped = React.useCallback(() => {
+    if (onTap) {
+      onTap()
+    }
+  }, [onTap])
 
   if (isLoading) {
-    return <System.ButtonSkeleton style={{ width: rest.width, height: rest.height }} />
+    return <System.ButtonSkeleton style={{ width: rest.width, height: rest.height }} onTap={onButtonTapped} />
   }
 
   return (
-    <Stack distribution="center" size="100%">
-      <System.Button {...rest}>{text}</System.Button>
-    </Stack>
+    <System.Button {...rest} onTap={onButtonTapped}>
+      {text}
+    </System.Button>
   )
 }
 
 //Define default props
 Button.defaultProps = {
   width: 118,
-  height: 48,
+  height: 40,
+  onTap: () => console.log("Button Tapped!"),
 }
 
 //Create property controls to expose properties in the canvas
@@ -55,5 +62,9 @@ addPropertyControls(Button, {
     title: "Loading",
     type: ControlType.Boolean,
     defaultValue: false,
+  },
+  onTap: {
+    type: ControlType.EventHandler,
+    title: "On Tap",
   },
 })
