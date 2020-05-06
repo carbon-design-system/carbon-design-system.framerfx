@@ -13,8 +13,8 @@ const InnerTooltipDefinition = (props) => {
 export const TooltipDefinition = withHOC(InnerTooltipDefinition)
 
 TooltipDefinition.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 100,
+  height: 18,
 }
 
 const directionOptions = ["bottom", "top", "left", "right"]
