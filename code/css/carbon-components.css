@@ -83,7 +83,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  /* font: inherit; */
   vertical-align: baseline;
 }
 
@@ -92,7 +92,7 @@ select,
 input,
 textarea {
   border-radius: 0;
-  font-family: inherit;
+  /* font-family: inherit; */
 }
 
 input[type='text']::-ms-clear {
@@ -164,8 +164,8 @@ html {
 }
 
 body {
-  font-weight: 400;
-  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  /* font-weight: 400;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
