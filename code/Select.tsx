@@ -40,6 +40,20 @@ addPropertyControls(Select, {
     type: ControlType.String,
     defaultValue: ["Option 1"],
   },
+  noLabel: {
+    title: "Label",
+    type: ControlType.Boolean,
+    enabledTitle: "Hide",
+    disabledTitle: "Show",
+    defaultValue: false,
+  },
+  labelText: {
+    title: "Label Text",
+    type: ControlType.String,
+    defaultValue: "Select",
+    // @ts-ignore
+    hidden: (props) => props.noLabel,
+  },
   options: {
     title: "Options",
     type: ControlType.Array,
@@ -76,13 +90,6 @@ addPropertyControls(Select, {
   light: {
     title: "Light",
     type: ControlType.Boolean,
-    defaultValue: false,
-  },
-  noLabel: {
-    title: "Label",
-    type: ControlType.Boolean,
-    enabledTitle: "Hide",
-    disabledTitle: "Show",
     defaultValue: false,
   },
   size: {
