@@ -6,10 +6,23 @@ import { omitIrrelevantProps, propsWithoutChildren } from "./utils/props"
 import { withHOC } from "./withHOC"
 
 const InnerTextInput = (props) => {
-  const { value, invalid, onChange, ...rest } = omitIrrelevantProps(propsWithoutChildren(props))
+  const { value, invalid, onChange, inputType, ...rest } = omitIrrelevantProps(propsWithoutChildren(props))
   const [currentValue, setValue] = useManagedState(value, onChange)
   //@ts-ignore
   const [focused, setFocused] = React.useState(false)
+
+  if (inputType === "password") {
+    return (
+      <System.TextInput.PasswordInput
+        value={currentValue}
+        onChange={(e) => setValue(e.target.value)}
+        onBlur={() => setFocused(false)}
+        onFocus={() => setFocused(true)}
+        invalid={invalid && !focused}
+        {...rest}
+      />
+    )
+  }
 
   return (
     <System.TextInput
@@ -26,12 +39,17 @@ const InnerTextInput = (props) => {
 export const TextInput = withHOC(InnerTextInput)
 
 TextInput.defaultProps = {
-  width: 135,
-  height: 35,
+  width: 221,
+  height: 65,
   onChange: (value) => console.log(value),
 }
 
 addPropertyControls(TextInput, {
+  inputType: {
+    type: ControlType.SegmentedEnum,
+    options: ["text", "password"],
+    optionTitles: ["Text", "Password"],
+  },
   disabled: { type: ControlType.Boolean, defaultValue: false },
   labelText: { type: ControlType.String, defaultValue: "TextInput label" },
   helperText: {
@@ -40,11 +58,17 @@ addPropertyControls(TextInput, {
   },
   placeholder: {
     type: ControlType.String,
-    defaultValue: "placeholder",
+    defaultValue: "Placeholder",
   },
   invalidText: {
     type: ControlType.String,
-    defaultValue: "invalid text",
+    defaultValue: "Invalid text",
+  },
+  showPasswordLabel: {
+    type: ControlType.String,
+    defaultValue: "Show Password",
+    // @ts-ignore
+    hidden: (props) => props.inputType !== "password",
   },
   invalid: { type: ControlType.Boolean, defaultValue: false },
 })
