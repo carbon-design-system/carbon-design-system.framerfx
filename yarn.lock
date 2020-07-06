@@ -14,6 +14,13 @@
   dependencies:
     "@carbon/icon-helpers" "^10.7.0"
 
+"@framer/framer.default@^1.71.0":
+  version "1.71.0"
+  resolved "https://registry.framer.com/@framer/framer.default/-/@framer/framer.default-1.71.0.tgz#b9686541c57222025cfc7d582578c9fabe4419ee"
+  integrity sha512-W0WKtDLtRUpVX9saVbwhCOv0nu6OGhQg7B5MWflXzsADLavhLkLjKWYgUCmICGE7xfqXdP5yeiMJJacXYgYlAA==
+  dependencies:
+    react-feather "^2.0.3"
+
 "@types/prop-types@*":
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
@@ -137,6 +144,13 @@ prop-types@^15.7.2:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.8.1"
+
+react-feather@^2.0.3:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-feather/-/react-feather-2.0.8.tgz#455baf1470f756a57e2ad6c72545444ce5925781"
+  integrity sha512-J0dCEOvOxpovHeOVj3+8mAhN3/UERTfX6rSxnV6x4E+0s+STY536jhSjRfpSvTQA0SSFjYr4KrpPfdsLmK+zZg==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-is@^16.8.1, react-is@^16.8.6:
   version "16.13.1"

@@ -15,6 +15,7 @@
 	"author": "Iain Kettles",
 	"dependencies": {
 		"@carbon/icons-react": "^10.10.1",
+		"@framer/framer.default": "^1.71.0",
 		"carbon-components": "^10.11.1",
 		"carbon-components-react": "^7.11.1",
 		"carbon-icons": "^7.0.7",
