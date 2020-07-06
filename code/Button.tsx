@@ -13,11 +13,11 @@ export function Button(props) {
   }, [onTap])
 
   if (isLoading) {
-    return <System.ButtonSkeleton style={{ width: rest.width, height: rest.height }} onTap={onButtonTapped} />
+    return <System.ButtonSkeleton style={{ width: rest.width, height: rest.height }} onClick={onButtonTapped} />
   }
 
   return (
-    <System.Button {...rest} onTap={onButtonTapped}>
+    <System.Button {...rest} onClick={onButtonTapped}>
       {text}
     </System.Button>
   )
