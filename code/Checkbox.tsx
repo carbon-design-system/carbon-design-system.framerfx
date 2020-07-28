@@ -13,7 +13,7 @@ const InnerCheckbox = (props) => {
     return <System.CheckboxSkeleton />
   }
 
-  return <System.Checkbox {...rest} checked={isChecked} onChange={setIsChecked} />
+  return <System.Checkbox {...rest} onChange={setIsChecked} id={`${rest.id}-checkbox`} />
 }
 
 export const Checkbox = withHOC(InnerCheckbox)
