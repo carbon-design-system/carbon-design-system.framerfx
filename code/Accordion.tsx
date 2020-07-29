@@ -3,6 +3,7 @@ import * as System from "carbon-components-react"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
+import { ensureRelativePositioning } from "./utils/layout"
 
 const InnerAccordion = (props) => {
   const { itemTitles, itemContents, itemStates, isLoading, ...rest } = omitIrrelevantProps(props)
@@ -17,15 +18,7 @@ const InnerAccordion = (props) => {
     <System.Accordion {...rest}>
       {itemTitles.map((title, index) => (
         <System.AccordionItem key={`${title}-${index}`} title={title} open={!!itemStates[index]}>
-          {itemContents[index]
-            ? React.cloneElement(itemContents[index], {
-                ...itemContents[index].props,
-                style: {
-                  ...itemContents[index].props.style,
-                  position: "relative",
-                },
-              })
-            : null}
+          {itemContents[index] ? ensureRelativePositioning(itemContents[index]) : null}
         </System.AccordionItem>
       ))}
     </System.Accordion>
