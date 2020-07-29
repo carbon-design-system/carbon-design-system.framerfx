@@ -14,7 +14,9 @@ const InnerHeaderGlobalAction = (props) => {
   )
 }
 
-export const HeaderGlobalAction = withHOC(InnerHeaderGlobalAction)
+const HeaderGlobalAction = withHOC(InnerHeaderGlobalAction)
+
+export default HeaderGlobalAction
 
 HeaderGlobalAction.defaultProps = {
   width: 48,
