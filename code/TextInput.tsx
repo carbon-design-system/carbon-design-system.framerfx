@@ -6,7 +6,9 @@ import { omitIrrelevantProps, propsWithoutChildren } from "./utils/props"
 import { withHOC } from "./withHOC"
 
 const InnerTextInput = (props) => {
-  const { value, invalid, onChange, inputType, ...rest } = omitIrrelevantProps(propsWithoutChildren(props))
+  const { value, invalid, onChange, inputType, showPasswordLabel, ...rest } = omitIrrelevantProps(
+    propsWithoutChildren(props)
+  )
   const [currentValue, setValue] = useManagedState(value, onChange)
   //@ts-ignore
   const [focused, setFocused] = React.useState(false)
@@ -19,6 +21,7 @@ const InnerTextInput = (props) => {
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
         invalid={invalid && !focused}
+        showPasswordLabel={showPasswordLabel}
         {...rest}
       />
     )

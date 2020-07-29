@@ -5,7 +5,7 @@ import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
 
 const InnerContentSwitcher = (props) => {
-  const { selectionMode, sections, ...rest } = omitIrrelevantProps(props)
+  const { sections, ...rest } = omitIrrelevantProps(props)
 
   return (
     <System.ContentSwitcher {...rest}>
