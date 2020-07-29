@@ -4237,12 +4237,12 @@
               "actions" : [
                 {
                   "enabled" : true,
-                  "type" : "componentinstance",
-                  "value" : "TpXve8P_y"
+                  "type" : "enum",
+                  "value" : "iconApplications"
                 }
               ],
               "displayMenuButton" : true,
-              "isMenuOpen" : true,
+              "isMenuOpen" : false,
               "navigationItems" : [
                 {
                   "enabled" : true,
@@ -4367,63 +4367,6 @@
         "top" : 700,
         "visible" : true,
         "width" : 632,
-        "widthType" : 0
-      },
-      {
-        "__class" : "CodeComponentNode",
-        "aspectRatio" : null,
-        "bottom" : null,
-        "centerAnchorX" : 0,
-        "centerAnchorY" : 0,
-        "clip" : true,
-        "codeComponentIdentifier" : ".\/HeaderGlobalAction.tsx_HeaderGlobalAction",
-        "codeComponentPackageVersion" : null,
-        "codeComponentProps" : {
-          "icon" : "iconMenu",
-          "iconFill" : "hsl(0, 0%, 100%)",
-          "iconHeight" : 24,
-          "iconWidth" : 24
-        },
-        "codeOverrideEnabled" : false,
-        "constraintsLocked" : false,
-        "duplicatedFrom" : [
-          "HgJUvhVLb"
-        ],
-        "exportOptions" : [
-
-        ],
-        "fillColor" : "rgba(255,255,255,1)",
-        "fillEnabled" : false,
-        "fillImage" : null,
-        "fillImageOriginalName" : null,
-        "fillImagePixelHeight" : null,
-        "fillImagePixelWidth" : null,
-        "fillImageResize" : "fill",
-        "fillType" : "color",
-        "height" : 48,
-        "heightType" : 0,
-        "id" : "TpXve8P_y",
-        "intrinsicHeight" : 48,
-        "intrinsicWidth" : 48,
-        "left" : 1666,
-        "locked" : false,
-        "name" : null,
-        "opacity" : 1,
-        "originalid" : null,
-        "parentid" : "kiZ4XXMRH",
-        "previewSettings" : null,
-        "radius" : 0,
-        "radiusBottomLeft" : 0,
-        "radiusBottomRight" : 0,
-        "radiusIsRelative" : false,
-        "radiusPerCorner" : false,
-        "radiusTopLeft" : 0,
-        "radiusTopRight" : 0,
-        "right" : null,
-        "rotation" : 0,
-        "top" : 716,
-        "visible" : true,
-        "width" : 48,
         "widthType" : 0
       },
       {

@@ -4,20 +4,65 @@ import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import Search20 from "@carbon/icons-react/lib/search/20"
 import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
-import IconUtil from "./utils/Icon"
+import IconUtil, { iconPropertyControls } from "./utils/Icon"
+import { useManagedState } from "./utils/useManagedState"
 
 const InnerHeader = (props) => {
-  const { title, titlePrefix, navigationItems, actions, displayMenuButton, isMenuOpen, ...rest } = omitIrrelevantProps(
-    props
-  )
+  const {
+    title,
+    titlePrefix,
+    navigationItems,
+    actions,
+    displayMenuButton,
+    isMenuOpen,
+    onOpenMenu,
+    onCloseMenu,
+    onClickAction1,
+    onClickAction2,
+    onClickAction3,
+    onClickAction4,
+    ...rest
+  } = omitIrrelevantProps(props)
   const ariaLabel = React.useMemo(() => `${titlePrefix} ${title}`, [titlePrefix, title])
+  const [menuOpen, setMenuOpen] = useManagedState(isMenuOpen)
 
-  const onClickOpenMenu = React.useCallback(() => {}, [])
+  const onClickToggleMenu = React.useCallback(
+    (val: React.MouseEvent<HTMLDivElement>) => {
+      const isOpen = !menuOpen
+      setMenuOpen(isOpen)
+      if (isOpen) {
+        onOpenMenu()
+      } else {
+        onCloseMenu()
+      }
+    },
+    [setMenuOpen, menuOpen, onCloseMenu, onOpenMenu]
+  )
+
+  const onClickAction = React.useCallback(
+    (index: number) => {
+      switch (index) {
+        case 0:
+          onClickAction1()
+          break
+        case 1:
+          onClickAction2()
+          break
+        case 2:
+          onClickAction3()
+          break
+        case 3:
+          onClickAction4()
+          break
+      }
+    },
+    [onClickAction1, onClickAction2, onClickAction3, onClickAction4]
+  )
 
   return (
     <System.Header {...rest} aria-label={ariaLabel}>
       {displayMenuButton && (
-        <System.HeaderMenuButton aria-label={"Open Menu"} onClick={onClickOpenMenu} isActive={isMenuOpen} />
+        <System.HeaderMenuButton aria-label={"Open Menu"} onClick={onClickToggleMenu} isActive={menuOpen} />
       )}
       <System.HeaderName prefix={titlePrefix}>{title}</System.HeaderName>
       {navigationItems.map((item, index) => (
@@ -26,16 +71,9 @@ const InnerHeader = (props) => {
       {actions && actions.length && (
         <System.HeaderGlobalBar>
           {actions.map((action, index) => {
-            // We have to reference the key as a string otherwise Framer will render a content property control
-            const iconChild = React.Children.toArray(action.props["children"])[0] as any
             return (
-              <System.HeaderGlobalAction aria-label={`${index}`} key={index} onClick={() => {}}>
-                <IconUtil
-                  width={iconChild.props.iconWidth}
-                  height={iconChild.props.iconHeight}
-                  fill={iconChild.props.iconFill}
-                  icon={iconChild.props.icon}
-                />
+              <System.HeaderGlobalAction aria-label={`${index}`} key={index} onClick={() => onClickAction(index)}>
+                <IconUtil width={24} height={24} fill={"#ff0000"} icon={action} />
               </System.HeaderGlobalAction>
             )
           })}
@@ -50,6 +88,12 @@ export const Header = withHOC(InnerHeader)
 Header.defaultProps = {
   width: 600,
   height: 48,
+  onOpenMenu: () => console.log("Menu is Open"),
+  onCloseMenu: () => console.log("Menu is Closed"),
+  onClickAction1: () => console.log("Click Action 1"),
+  onClickAction2: () => console.log("Click Action 2"),
+  onClickAction3: () => console.log("Click Action 3"),
+  onClickAction4: () => console.log("Click Action 4"),
 }
 
 addPropertyControls(Header, {
@@ -72,11 +116,13 @@ addPropertyControls(Header, {
     defaultValue: ["Link 1", "Link 2", "Link 3"],
   },
   actions: {
-    title: "Actions (HeaderGlobalAction)",
+    title: "Actions",
     type: ControlType.Array,
     propertyControl: {
-      type: ControlType.ComponentInstance,
+      ...iconPropertyControls.icon,
+      defaultValue: "iconApplications",
     },
+    defaultValue: ["iconApplications"],
   },
   displayMenuButton: {
     title: "Menu Button",
@@ -91,5 +137,24 @@ addPropertyControls(Header, {
     enabledTitle: "Open",
     disabledTitle: "Closed",
     defaultValue: false,
+    hidden: (props: any) => !props.displayMenuButton,
+  },
+  onOpenMenu: {
+    type: ControlType.EventHandler,
+  },
+  onCloseMenu: {
+    type: ControlType.EventHandler,
+  },
+  onClickAction1: {
+    type: ControlType.EventHandler,
+  },
+  onClickAction2: {
+    type: ControlType.EventHandler,
+  },
+  onClickAction3: {
+    type: ControlType.EventHandler,
+  },
+  onClickAction4: {
+    type: ControlType.EventHandler,
   },
 })
