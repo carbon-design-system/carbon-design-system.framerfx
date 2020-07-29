@@ -1,7 +1,6 @@
 import * as React from "react"
 import * as System from "carbon-components-react"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
-import Search20 from "@carbon/icons-react/lib/search/20"
+import { ControlType, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
 import IconUtil, { iconPropertyControls } from "./utils/Icon"
@@ -21,6 +20,12 @@ const InnerHeader = (props) => {
     onClickAction2,
     onClickAction3,
     onClickAction4,
+    onClickLink1,
+    onClickLink2,
+    onClickLink3,
+    onClickLink4,
+    onClickLink5,
+    onClickLink6,
     ...rest
   } = omitIrrelevantProps(props)
   const ariaLabel = React.useMemo(() => `${titlePrefix} ${title}`, [titlePrefix, title])
@@ -59,6 +64,32 @@ const InnerHeader = (props) => {
     [onClickAction1, onClickAction2, onClickAction3, onClickAction4]
   )
 
+  const onClickLink = React.useCallback(
+    (index: number) => {
+      switch (index) {
+        case 0:
+          onClickLink1()
+          break
+        case 1:
+          onClickLink2()
+          break
+        case 2:
+          onClickLink3()
+          break
+        case 3:
+          onClickLink4()
+          break
+        case 4:
+          onClickLink5()
+          break
+        case 5:
+          onClickLink6()
+          break
+      }
+    },
+    [onClickLink1, onClickLink2, onClickLink3, onClickLink4, onClickLink5, onClickLink6]
+  )
+
   return (
     <System.Header {...rest} aria-label={ariaLabel}>
       {displayMenuButton && (
@@ -66,7 +97,9 @@ const InnerHeader = (props) => {
       )}
       <System.HeaderName prefix={titlePrefix}>{title}</System.HeaderName>
       {navigationItems.map((item, index) => (
-        <System.HeaderMenuItem key={index}>{item}</System.HeaderMenuItem>
+        <System.HeaderMenuItem key={index} onClick={() => onClickLink(index)}>
+          {item}
+        </System.HeaderMenuItem>
       ))}
       {actions && actions.length && (
         <System.HeaderGlobalBar>
@@ -94,6 +127,12 @@ Header.defaultProps = {
   onClickAction2: () => console.log("Click Action 2"),
   onClickAction3: () => console.log("Click Action 3"),
   onClickAction4: () => console.log("Click Action 4"),
+  onClickLink1: () => console.log("Click Link 1"),
+  onClickLink2: () => console.log("Click Link 2"),
+  onClickLink3: () => console.log("Click Link 3"),
+  onClickLink4: () => console.log("Click Link 4"),
+  onClickLink5: () => console.log("Click Link 5"),
+  onClickLink6: () => console.log("Click Link 6"),
 }
 
 addPropertyControls(Header, {
@@ -155,6 +194,24 @@ addPropertyControls(Header, {
     type: ControlType.EventHandler,
   },
   onClickAction4: {
+    type: ControlType.EventHandler,
+  },
+  onClickLink1: {
+    type: ControlType.EventHandler,
+  },
+  onClickLink2: {
+    type: ControlType.EventHandler,
+  },
+  onClickLink3: {
+    type: ControlType.EventHandler,
+  },
+  onClickLink4: {
+    type: ControlType.EventHandler,
+  },
+  onClickLink5: {
+    type: ControlType.EventHandler,
+  },
+  onClickLink6: {
     type: ControlType.EventHandler,
   },
 })
