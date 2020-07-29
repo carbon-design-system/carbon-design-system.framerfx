@@ -25,13 +25,20 @@ Checkbox.defaultProps = {
 }
 
 addPropertyControls(Checkbox, {
-  isLoading: {
-    title: "Loading",
-    type: ControlType.Boolean,
-    defaultValue: false,
+  labelText: {
+    title: "Label Text",
+    type: ControlType.String,
+    defaultValue: "Checkbox Label",
   },
   checked: {
-    title: "Checked",
+    title: "State",
+    type: ControlType.Boolean,
+    enabledTitle: "Checked",
+    disabledTitle: "Unchecked",
+    defaultValue: false,
+  },
+  isLoading: {
+    title: "Loading",
     type: ControlType.Boolean,
     defaultValue: false,
   },
@@ -46,13 +53,10 @@ addPropertyControls(Checkbox, {
     defaultValue: false,
   },
   hideLabel: {
-    title: "Hide label",
+    title: "Label",
+    enabledTitle: "Hide",
+    disabledTitle: "Show",
     type: ControlType.Boolean,
     defaultValue: false,
-  },
-  labelText: {
-    title: "Label Text",
-    type: ControlType.String,
-    defaultValue: "Checkbox Label",
   },
 })
