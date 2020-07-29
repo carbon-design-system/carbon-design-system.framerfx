@@ -9,7 +9,7 @@ const InnerHeaderGlobalAction = (props) => {
   const { icon, iconWidth, iconHeight, iconFill, ...rest } = omitIrrelevantProps(props)
   return (
     <System.HeaderGlobalAction {...rest} aria-label={"HeaderGlobalAction"} onClick={() => {}}>
-      <IconUtil height={iconHeight} width={iconWidth} icon={icon} />
+      <IconUtil key={iconFill} height={iconHeight} width={iconWidth} icon={icon} fill={iconFill} />
     </System.HeaderGlobalAction>
   )
 }
