@@ -5,7 +5,7 @@ import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
 
 const InnerAccordion = (props) => {
-  const { itemTitles, itemContents, isLoading, ...rest } = omitIrrelevantProps(props)
+  const { itemTitles, itemContents, itemStates, isLoading, ...rest } = omitIrrelevantProps(props)
 
   if (isLoading) {
     return (
@@ -16,8 +16,16 @@ const InnerAccordion = (props) => {
   return (
     <System.Accordion {...rest}>
       {itemTitles.map((title, index) => (
-        <System.AccordionItem key={`${title}-${index}`} title={title}>
-          {itemContents[index] || null}
+        <System.AccordionItem key={`${title}-${index}`} title={title} open={!!itemStates[index]}>
+          {itemContents[index]
+            ? React.cloneElement(itemContents[index], {
+                ...itemContents[index].props,
+                style: {
+                  ...itemContents[index].props.style,
+                  position: "relative",
+                },
+              })
+            : null}
         </System.AccordionItem>
       ))}
     </System.Accordion>
@@ -32,17 +40,17 @@ Accordion.defaultProps = {
 }
 
 addPropertyControls(Accordion, {
-  isLoading: {
-    title: "Loading",
-    type: ControlType.Boolean,
-    defaultValue: false,
-  },
   align: {
     title: "Align",
     type: ControlType.Enum,
     defaultValue: "end",
     options: ["start", "end"],
-    optionTitles: ["start", "end"],
+    optionTitles: ["Start", "End"],
+  },
+  isLoading: {
+    title: "Loading",
+    type: ControlType.Boolean,
+    defaultValue: false,
   },
   itemTitles: {
     title: "Item Titles",
@@ -51,6 +59,17 @@ addPropertyControls(Accordion, {
       type: ControlType.String,
     },
     defaultValue: ["Item 1", "Item 2"],
+  },
+  itemStates: {
+    title: "Item States",
+    type: ControlType.Array,
+    propertyControl: {
+      type: ControlType.Boolean,
+      enabledTitle: "Open",
+      disabledTitle: "Closed",
+      defaultValue: false,
+    },
+    defaultValue: [false, false],
   },
   itemContents: {
     title: "Item Contents",
