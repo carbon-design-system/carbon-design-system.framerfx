@@ -5,19 +5,19 @@ import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
 
 const InnerLink = (props) => {
-  const { text, onClick, ...rest } = omitIrrelevantProps(props)
+  const { text, href, onClick, ...rest } = omitIrrelevantProps(props)
   const onClickLink = React.useCallback(
     (e) => {
       e.preventDefault()
       e.stopPropagation()
       if (onClick) {
-        onClick()
+        onClick(href)
       }
     },
-    [onClick]
+    [onClick, href]
   )
   return (
-    <System.Link {...rest} onClick={onClickLink}>
+    <System.Link {...rest} href={href} onClick={onClickLink}>
       {text}
     </System.Link>
   )
@@ -28,7 +28,7 @@ export const Link = withHOC(InnerLink)
 Link.defaultProps = {
   width: 59,
   height: 19,
-  onClick: () => console.log("Link clicked"),
+  onClick: (href) => console.log(`Link clicked ${href}`),
 }
 
 addPropertyControls(Link, {
@@ -56,5 +56,8 @@ addPropertyControls(Link, {
     title: "Visited",
     type: ControlType.Boolean,
     defaultValue: false,
+  },
+  onClick: {
+    type: ControlType.EventHandler,
   },
 })
