@@ -37,8 +37,10 @@ addPropertyControls(AccordionItem, {
     defaultValue: "AccordionItem Title",
   },
   open: {
-    title: "Open",
+    title: "State",
     type: ControlType.Boolean,
+    enabledTitle: "Open",
+    disabledTitle: "Closed",
     defaultValue: false,
   },
 })

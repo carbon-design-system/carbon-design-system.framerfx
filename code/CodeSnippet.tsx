@@ -22,6 +22,19 @@ CodeSnippet.defaultProps = {
 }
 
 addPropertyControls(CodeSnippet, {
+  codeBody: {
+    title: "Code",
+    type: ControlType.String,
+    defaultValue: `const foo = 'bar';`,
+    displayTextArea: true,
+  },
+  type: {
+    title: "Type",
+    type: ControlType.Enum,
+    defaultValue: "single",
+    options: ["single", "inline", "multi"],
+    optionTitles: ["single", "inline", "multi"],
+  },
   isLoading: {
     title: "Loading",
     type: ControlType.Boolean,
@@ -32,21 +45,10 @@ addPropertyControls(CodeSnippet, {
     type: ControlType.Boolean,
     defaultValue: false,
   },
-  type: {
-    title: "Type",
-    type: ControlType.Enum,
-    defaultValue: "single",
-    options: ["single", "inline", "multi"],
-    optionTitles: ["single", "inline", "multi"],
-  },
-  codeBody: {
-    title: "Code",
-    type: ControlType.String,
-    defaultValue: `const foo = 'bar';`,
-  },
   feedback: {
     title: "Feedback",
     type: ControlType.String,
+    defaultValue: "Copied!",
   },
   copyButtonDescription: {
     title: "Copy Button Description",
@@ -56,7 +58,7 @@ addPropertyControls(CodeSnippet, {
   copyLabel: {
     title: "Copy Label",
     type: ControlType.String,
-    defaultValue: "copyLabel",
+    defaultValue: "Copy Label",
   },
   showMoreText: {
     title: "Show More Text",
