@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as System from "carbon-components-react"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { ControlType, PropertyControls, addPropertyControls, RenderTarget } from "framer"
 import { withHOC } from "./withHOC"
 import { startCase } from "./utils"
 import { omitIrrelevantProps } from "./utils/props"
@@ -9,15 +9,17 @@ import { ensureRelativePositioning } from "./utils/layout"
 const InnerTooltip = (props) => {
   const { content, tooltipText, open, ...rest } = omitIrrelevantProps(props)
   return (
-    <System.Tooltip {...rest} open={!open ? undefined : open}>
-      <div style={{ position: "relative" }}>
-        {content && content.length ? (
-          ensureRelativePositioning(React.Children.toArray(content)[0])
-        ) : (
-          <p>{tooltipText}</p>
-        )}
-      </div>
-    </System.Tooltip>
+    <div style={{ position: "relative" }}>
+      <System.Tooltip {...rest} open={!open || RenderTarget.current() === RenderTarget.canvas ? undefined : open}>
+        <div style={{ position: "relative" }}>
+          {content && content.length ? (
+            ensureRelativePositioning(React.Children.toArray(content)[0])
+          ) : (
+            <p>{tooltipText}</p>
+          )}
+        </div>
+      </System.Tooltip>
+    </div>
   )
 }
 
