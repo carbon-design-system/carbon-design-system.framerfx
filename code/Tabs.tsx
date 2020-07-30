@@ -22,9 +22,9 @@ const instructionsStyle: React.CSSProperties = {
 }
 
 const InnerTabs = (props) => {
-  const { tabLabels, tabContent, ...rest } = omitIrrelevantProps(props)
+  const { tabLabels, tabContent, selected, ...rest } = omitIrrelevantProps(props)
   return (
-    <System.Tabs {...rest}>
+    <System.Tabs {...rest} selected={selected - 1}>
       {tabLabels.map((tabLabel, index) => (
         <System.Tab key={index} id={`tab-${index + 1}`} label={tabLabel}>
           {!tabContent[index] ? (
@@ -48,6 +48,14 @@ Tabs.defaultProps = {
 }
 
 addPropertyControls(Tabs, {
+  selected: {
+    title: "Selected",
+    type: ControlType.Number,
+    displayStepper: true,
+    step: 1,
+    min: 1,
+    max: 100,
+  },
   tabLabels: {
     title: "Tab Labels",
     type: ControlType.Array,
