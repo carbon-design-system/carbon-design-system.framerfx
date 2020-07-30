@@ -6,11 +6,31 @@ import { omitIrrelevantProps, propsWithoutChildren } from "./utils/props"
 import { withHOC } from "./withHOC"
 
 const InnerTextInput = (props) => {
-  const { value, invalid, onChange, inputType, showPasswordLabel, labelText, ...rest } = omitIrrelevantProps(
-    propsWithoutChildren(props)
-  )
+  const {
+    value,
+    invalid,
+    onChange,
+    inputType,
+    showPasswordLabel,
+    labelText,
+    onFocus,
+    onBlur,
+    ...rest
+  } = omitIrrelevantProps(propsWithoutChildren(props))
   const [currentValue, setValue] = useManagedState(value, onChange)
   const [focused, setFocused] = React.useState(false)
+  const onInputBlur = React.useCallback(() => {
+    setFocused(false)
+    if (onBlur) {
+      onBlur()
+    }
+  }, [onBlur])
+  const onInputFocus = React.useCallback(() => {
+    setFocused(true)
+    if (onFocus) {
+      onFocus()
+    }
+  }, [onFocus])
 
   if (inputType === "password") {
     return (
@@ -20,8 +40,8 @@ const InnerTextInput = (props) => {
         invalid={invalid && !focused}
         showPasswordLabel={showPasswordLabel}
         onChange={(e) => setValue(e.target.value)}
-        onBlur={() => setFocused(false)}
-        onFocus={() => setFocused(true)}
+        onBlur={onInputBlur}
+        onFocus={onInputFocus}
         {...rest}
       />
     )
@@ -34,6 +54,7 @@ const InnerTextInput = (props) => {
       labelText={labelText}
       invalid={invalid && !focused}
       onChange={(e) => setValue(e.target.value)}
+      onSubmit={() => console.log("Submit")}
       onBlur={() => setFocused(false)}
       onFocus={() => setFocused(true)}
     />
@@ -45,7 +66,6 @@ export const TextInput = withHOC(InnerTextInput)
 TextInput.defaultProps = {
   width: 221,
   height: 65,
-  onChange: (value) => console.log(value),
 }
 
 addPropertyControls(TextInput, {
@@ -90,5 +110,11 @@ addPropertyControls(TextInput, {
   invalidText: {
     type: ControlType.String,
     defaultValue: "Invalid text",
+  },
+  onFocus: {
+    type: ControlType.EventHandler,
+  },
+  onBlur: {
+    type: ControlType.EventHandler,
   },
 })
