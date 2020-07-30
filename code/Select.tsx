@@ -22,22 +22,28 @@ const InnerSelect = (props) => {
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       const parsedValue = parseInt(e.currentTarget.value, 10)
       setValue(parsedValue)
+      let toCall: () => void
+
       switch (parsedValue) {
         case 0:
-          onClickOption1()
+          toCall = onClickOption1
           break
         case 1:
-          onClickOption2()
+          toCall = onClickOption2
           break
         case 2:
-          onClickOption3()
+          toCall = onClickOption3
           break
         case 3:
-          onClickOption4()
+          toCall = onClickOption4
           break
         case 4:
-          onClickOption5()
+          toCall = onClickOption5
           break
+      }
+
+      if (toCall) {
+        toCall()
       }
     },
     [setValue, onClickOption1, onClickOption2, onClickOption3, onClickOption4, onClickOption5]
@@ -61,12 +67,6 @@ export const Select = withHOC(InnerSelect)
 Select.defaultProps = {
   width: 224,
   height: 75,
-  onChange: (value) => console.log("Select Value Changed ", value),
-  onClickOption1: () => console.log("Option 1 Selected"),
-  onClickOption2: () => console.log("Option 2 Selected"),
-  onClickOption3: () => console.log("Option 3 Selected"),
-  onClickOption4: () => console.log("Option 4 Selected"),
-  onClickOption5: () => console.log("Option 5 Selected"),
 }
 
 addPropertyControls(Select, {
