@@ -18,8 +18,8 @@ const InnerTooltipIcon = (props) => {
 export const TooltipIcon = withHOC(InnerTooltipIcon)
 
 TooltipIcon.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 24,
+  height: 24,
 }
 
 const directionOptions = ["bottom", "top", "left", "right"]
@@ -30,6 +30,7 @@ addPropertyControls(TooltipIcon, {
     title: "Text",
     type: ControlType.String,
     defaultValue: "Tooltip text",
+    displayTextArea: true,
   },
   direction: {
     title: "Direction",
