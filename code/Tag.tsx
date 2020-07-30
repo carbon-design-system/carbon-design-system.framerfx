@@ -15,6 +15,7 @@ export const Tag = withHOC(InnerTag)
 Tag.defaultProps = {
   width: 76,
   height: 32,
+  onClose: () => console.log("Tag Closed"),
 }
 
 const tagTypeOptions = ["red", "magenta", "purple", "blue", "cyan", "teal", "green", "gray", "cool-gray", "warm-gray"]
@@ -24,6 +25,12 @@ addPropertyControls(Tag, {
     title: "Text",
     type: ControlType.String,
     defaultValue: "Tag Text",
+  },
+  title: {
+    title: "Hover Title",
+    type: ControlType.String,
+    defaultValue: "title",
+    hidden: (props: any) => !props.filter,
   },
   type: {
     title: "Type",
@@ -41,9 +48,7 @@ addPropertyControls(Tag, {
     type: ControlType.Boolean,
     defaultValue: false,
   },
-  title: {
-    title: "Title",
-    type: ControlType.String,
-    defaultValue: "title",
+  onClose: {
+    type: ControlType.EventHandler,
   },
 })
