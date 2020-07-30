@@ -9,17 +9,15 @@ import { ensureRelativePositioning } from "./utils/layout"
 const InnerTooltip = (props) => {
   const { content, tooltipText, open, ...rest } = omitIrrelevantProps(props)
   return (
-    <div style={{ position: "relative" }}>
-      <System.Tooltip {...rest} open={!open || RenderTarget.current() === RenderTarget.canvas ? undefined : open}>
-        <div style={{ position: "relative" }}>
-          {content && content.length ? (
-            ensureRelativePositioning(React.Children.toArray(content)[0])
-          ) : (
-            <p>{tooltipText}</p>
-          )}
-        </div>
-      </System.Tooltip>
-    </div>
+    <System.Tooltip {...rest} open={!open || RenderTarget.current() === RenderTarget.canvas ? undefined : open}>
+      <div style={{ position: "relative" }}>
+        {content && content.length ? (
+          ensureRelativePositioning(React.Children.toArray(content)[0])
+        ) : (
+          <p>{tooltipText}</p>
+        )}
+      </div>
+    </System.Tooltip>
   )
 }
 
