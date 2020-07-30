@@ -6,12 +6,28 @@ import { omitIrrelevantProps, propsWithoutChildren } from "./utils/props"
 import { useManagedState } from "./utils/useManagedState"
 
 const InnerToggle = (props) => {
-  const { value, onChange, variant, ...rest } = omitIrrelevantProps(propsWithoutChildren(props))
+  const { value, onChange, variant, onToggleOn, onToggleOff, ...rest } = omitIrrelevantProps(
+    propsWithoutChildren(props)
+  )
   const [currentValue, setCurrentValue] = useManagedState(value, onChange)
+  const onToggle = React.useCallback(
+    (toggled: boolean) => {
+      if (toggled && onToggleOn) {
+        onToggleOn()
+      } else if (onToggleOff) {
+        onToggleOff()
+      }
+
+      setCurrentValue(toggled)
+    },
+    [onToggleOn, onToggleOff]
+  )
 
   const ToggleTag = variant === "small" ? System.ToggleSmall : System.Toggle
 
-  return <ToggleTag {...rest} aria-label={"Toggle"} onToggle={setCurrentValue} value={currentValue} />
+  return (
+    <ToggleTag {...rest} id={`${rest.id}-checkbox`} aria-label={"Toggle"} onToggle={onToggle} value={currentValue} />
+  )
 }
 
 export const Toggle = withHOC(InnerToggle)
@@ -19,7 +35,6 @@ export const Toggle = withHOC(InnerToggle)
 Toggle.defaultProps = {
   width: 75,
   height: 41,
-  onChange: (value: boolean) => console.log(`Toggle Value Changed`, value),
 }
 
 addPropertyControls(Toggle, {
@@ -51,5 +66,11 @@ addPropertyControls(Toggle, {
     options: ["small", "regular"],
     optionTitles: ["Small", "Regular"],
     defaultValue: "regular",
+  },
+  onToggleOn: {
+    type: ControlType.EventHandler,
+  },
+  onToggleOff: {
+    type: ControlType.EventHandler,
   },
 })
