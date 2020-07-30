@@ -27,7 +27,6 @@ export function Button(props) {
 Button.defaultProps = {
   width: 118,
   height: 40,
-  onTap: () => console.log("Button Tapped!"),
 }
 
 //Create property controls to expose properties in the canvas

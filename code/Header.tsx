@@ -36,8 +36,10 @@ const InnerHeader = (props) => {
       const isOpen = !menuOpen
       setMenuOpen(isOpen)
       if (isOpen) {
-        onOpenMenu()
-      } else {
+        if (onOpenMenu) {
+          onOpenMenu()
+        }
+      } else if (onCloseMenu) {
         onCloseMenu()
       }
     },
@@ -46,19 +48,25 @@ const InnerHeader = (props) => {
 
   const onClickAction = React.useCallback(
     (index: number) => {
+      let toCall: () => void
+
       switch (index) {
         case 0:
-          onClickAction1()
+          toCall = onClickAction1()
           break
         case 1:
-          onClickAction2()
+          toCall = onClickAction2()
           break
         case 2:
-          onClickAction3()
+          toCall = onClickAction3()
           break
         case 3:
-          onClickAction4()
+          toCall = onClickAction4()
           break
+      }
+
+      if (toCall) {
+        toCall()
       }
     },
     [onClickAction1, onClickAction2, onClickAction3, onClickAction4]
@@ -66,25 +74,31 @@ const InnerHeader = (props) => {
 
   const onClickLink = React.useCallback(
     (index: number) => {
+      let toCall: () => void
+
       switch (index) {
         case 0:
-          onClickLink1()
+          toCall = onClickLink1
           break
         case 1:
-          onClickLink2()
+          toCall = onClickLink2
           break
         case 2:
-          onClickLink3()
+          toCall = onClickLink3
           break
         case 3:
-          onClickLink4()
+          toCall = onClickLink4
           break
         case 4:
-          onClickLink5()
+          toCall = onClickLink5
           break
         case 5:
-          onClickLink6()
+          toCall = onClickLink6
           break
+      }
+
+      if (toCall) {
+        toCall()
       }
     },
     [onClickLink1, onClickLink2, onClickLink3, onClickLink4, onClickLink5, onClickLink6]
@@ -121,18 +135,6 @@ export const Header = withHOC(InnerHeader)
 Header.defaultProps = {
   width: 600,
   height: 48,
-  onOpenMenu: () => console.log("Menu is Open"),
-  onCloseMenu: () => console.log("Menu is Closed"),
-  onClickAction1: () => console.log("Click Action 1"),
-  onClickAction2: () => console.log("Click Action 2"),
-  onClickAction3: () => console.log("Click Action 3"),
-  onClickAction4: () => console.log("Click Action 4"),
-  onClickLink1: () => console.log("Click Link 1"),
-  onClickLink2: () => console.log("Click Link 2"),
-  onClickLink3: () => console.log("Click Link 3"),
-  onClickLink4: () => console.log("Click Link 4"),
-  onClickLink5: () => console.log("Click Link 5"),
-  onClickLink6: () => console.log("Click Link 6"),
 }
 
 addPropertyControls(Header, {

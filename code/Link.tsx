@@ -28,7 +28,6 @@ export const Link = withHOC(InnerLink)
 Link.defaultProps = {
   width: 59,
   height: 19,
-  onClick: (href) => console.log(`Link clicked ${href}`),
 }
 
 addPropertyControls(Link, {

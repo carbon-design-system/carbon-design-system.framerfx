@@ -10,20 +10,32 @@ const InnerInlineNotification = (props) => {
   const { actions, onClose, onAction1Click, onAction2Click, onAction3Click, ...rest } = omitIrrelevantProps(props)
   const onClickAction = React.useCallback(
     (index: number) => {
+      let toCall: () => void
+
       switch (index) {
         case 0:
-          onAction1Click()
+          toCall = onAction1Click
           break
         case 1:
-          onAction2Click()
+          toCall = onAction2Click
           break
         case 2:
-          onAction3Click()
+          toCall = onAction3Click
           break
+      }
+
+      if (toCall) {
+        toCall()
       }
     },
     [onAction1Click, onAction2Click, onAction3Click]
   )
+  const onClickCloseButton = React.useCallback(() => {
+    if (onClose) {
+      onClose()
+    }
+  }, [onClose])
+
   return (
     <System.InlineNotification
       {...rest}
@@ -32,7 +44,7 @@ const InnerInlineNotification = (props) => {
           {action}
         </System.NotificationActionButton>
       ))}
-      onCloseButtonClick={onClose}
+      onCloseButtonClick={onClickCloseButton}
     />
   )
 }
@@ -42,10 +54,6 @@ export const InlineNotification = withHOC(InnerInlineNotification)
 InlineNotification.defaultProps = {
   width: 320,
   height: 82,
-  onClose: () => console.log(`Notification Closed`),
-  onAction1Click: () => console.log(`Action 1 Clicked`),
-  onAction2Click: () => console.log(`Action 2 Clicked`),
-  onAction3Click: () => console.log(`Action 3 Clicked`),
 }
 
 const kindOptions = ["error", "info", "success", "warning"]

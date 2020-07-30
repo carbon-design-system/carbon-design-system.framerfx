@@ -25,7 +25,6 @@ export const TextArea = withHOC(InnerTextArea)
 TextArea.defaultProps = {
   width: 215,
   height: 130,
-  onChange: (value: string) => console.log(`TextArea value changed `, value),
 }
 
 addPropertyControls(TextArea, {

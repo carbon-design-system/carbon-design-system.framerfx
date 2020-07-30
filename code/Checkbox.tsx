@@ -21,7 +21,6 @@ export const Checkbox = withHOC(InnerCheckbox)
 Checkbox.defaultProps = {
   width: 150,
   height: 30,
-  onChange: (value) => console.log("Value changed ", value),
 }
 
 addPropertyControls(Checkbox, {
