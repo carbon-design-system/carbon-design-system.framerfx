@@ -13,7 +13,7 @@ const InnerTooltipDefinition = (props) => {
 export const TooltipDefinition = withHOC(InnerTooltipDefinition)
 
 TooltipDefinition.defaultProps = {
-  width: 100,
+  width: 103,
   height: 18,
 }
 
@@ -22,14 +22,15 @@ const alignOptions = ["start", "center", "end"]
 
 addPropertyControls(TooltipDefinition, {
   text: {
-    title: "Text",
+    title: "Label",
     type: ControlType.String,
     defaultValue: "Definition Tooltip",
   },
   tooltipText: {
-    title: "Tooltip Text",
+    title: "Text",
     type: ControlType.String,
     defaultValue: "Brief description of the dotted, underlined word above.",
+    displayTextArea: true,
   },
   direction: {
     title: "Direction",
