@@ -6,7 +6,7 @@ import { omitIrrelevantProps } from "./utils/props"
 import { useManagedState } from "./utils/useManagedState"
 
 const InnerTextArea = (props) => {
-  const { value, onChange, isLoading, ...rest } = omitIrrelevantProps(props)
+  const { value, onChange, isLoading, labelText, ...rest } = omitIrrelevantProps(props)
   const [currentValue, setValue] = useManagedState(value, onChange)
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => setValue(e.currentTarget.value),
@@ -17,7 +17,7 @@ const InnerTextArea = (props) => {
     return <System.TextAreaSkeleton style={{ width: rest.width, height: rest.height }} />
   }
 
-  return <System.TextArea {...rest} value={currentValue} onChange={handleChange} />
+  return <System.TextArea {...rest} value={currentValue} labelText={labelText} onChange={handleChange} />
 }
 
 export const TextArea = withHOC(InnerTextArea)
@@ -33,11 +33,20 @@ addPropertyControls(TextArea, {
     title: "Value",
     type: ControlType.String,
     defaultValue: "",
+    displayTextArea: true,
+  },
+  hideLabel: {
+    title: "Label",
+    type: ControlType.Boolean,
+    enabledTitle: "Hide",
+    disabledTitle: "Show",
+    defaultValue: false,
   },
   labelText: {
-    title: "Label",
+    title: "‎↳ Text",
     type: ControlType.String,
     defaultValue: "Label Text",
+    hidden: (props: any) => props.hideLabel,
   },
   placeholder: {
     title: "Placeholder",
@@ -71,13 +80,6 @@ addPropertyControls(TextArea, {
   invalid: {
     title: "Invalid",
     type: ControlType.Boolean,
-    defaultValue: false,
-  },
-  hideLabel: {
-    title: "Label",
-    type: ControlType.Boolean,
-    enabledTitle: "Hide",
-    disabledTitle: "Show",
     defaultValue: false,
   },
   light: {
