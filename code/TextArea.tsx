@@ -35,7 +35,7 @@ addPropertyControls(TextArea, {
     defaultValue: "",
   },
   labelText: {
-    title: "Label Text",
+    title: "Label",
     type: ControlType.String,
     defaultValue: "Label Text",
   },
@@ -45,7 +45,7 @@ addPropertyControls(TextArea, {
     defaultValue: "Placeholder Text",
   },
   invalidText: {
-    title: "Invalid text",
+    title: "Invalid Text",
     type: ControlType.String,
     defaultValue: "Invalid Text",
   },
