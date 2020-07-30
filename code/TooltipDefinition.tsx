@@ -46,4 +46,7 @@ addPropertyControls(TooltipDefinition, {
     options: alignOptions,
     optionTitles: alignOptions.map(startCase),
   },
+  onClick: {
+    type: ControlType.EventHandler,
+  },
 })

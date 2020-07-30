@@ -49,4 +49,7 @@ addPropertyControls(TooltipIcon, {
   iconWidth: iconPropertyControls.width,
   iconHeight: iconPropertyControls.height,
   icon: { ...iconPropertyControls.icon, defaultValue: "iconSchematics" },
+  onClick: {
+    type: ControlType.EventHandler,
+  },
 })
