@@ -1488,6 +1488,18 @@
             "codeComponentProps" : {
               "align" : "start",
               "isLoading" : false,
+              "itemStates" : [
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                },
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                }
+              ],
               "itemTitles" : [
                 {
                   "enabled" : true,
@@ -1555,6 +1567,18 @@
             "codeComponentProps" : {
               "align" : "start",
               "isLoading" : true,
+              "itemStates" : [
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                },
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                }
+              ],
               "itemTitles" : [
                 {
                   "enabled" : true,
@@ -1623,6 +1647,18 @@
             "codeComponentProps" : {
               "align" : "end",
               "isLoading" : false,
+              "itemStates" : [
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                },
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                }
+              ],
               "itemTitles" : [
                 {
                   "enabled" : true,
@@ -1691,6 +1727,18 @@
             "codeComponentProps" : {
               "align" : "end",
               "isLoading" : true,
+              "itemStates" : [
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                },
+                {
+                  "enabled" : true,
+                  "type" : "boolean",
+                  "value" : false
+                }
+              ],
               "itemTitles" : [
                 {
                   "enabled" : true,
@@ -6344,7 +6392,7 @@
                     }
                   ],
                   "size" : "sm",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6420,7 +6468,7 @@
                     }
                   ],
                   "size" : "xl",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6497,7 +6545,7 @@
                     }
                   ],
                   "size" : "xl",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6575,7 +6623,7 @@
                     }
                   ],
                   "size" : "xl",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6727,7 +6775,7 @@
                     }
                   ],
                   "size" : "sm",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6804,7 +6852,7 @@
                     }
                   ],
                   "size" : "xl",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6882,7 +6930,7 @@
                     }
                   ],
                   "size" : "xl",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6961,7 +7009,7 @@
                     }
                   ],
                   "size" : "sm",
-                  "value" : ""
+                  "value" : 0
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -7155,6 +7203,7 @@
             "codeComponentIdentifier" : ".\/Tabs.tsx_Tabs",
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
+              "selected" : 1,
               "tabContent" : [
                 {
                   "enabled" : true,
@@ -8964,12 +9013,14 @@
                 "codeComponentProps" : {
                   "disabled" : false,
                   "helperText" : "",
+                  "hideLabel" : false,
                   "inputType" : "text",
                   "invalid" : false,
                   "invalidText" : "Invalid text",
                   "labelText" : "Label",
                   "placeholder" : "Placeholder",
-                  "showPasswordLabel" : "Show Password"
+                  "showPasswordLabel" : "Show Password",
+                  "value" : "TextInput Value"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -9025,12 +9076,14 @@
                 "codeComponentProps" : {
                   "disabled" : false,
                   "helperText" : "Helper Text",
+                  "hideLabel" : false,
                   "inputType" : "text",
                   "invalid" : false,
                   "invalidText" : "Invalid text",
                   "labelText" : "TextInput label",
                   "placeholder" : "Placeholder",
-                  "showPasswordLabel" : "Show Password"
+                  "showPasswordLabel" : "Show Password",
+                  "value" : "TextInput Value"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -9087,12 +9140,14 @@
                 "codeComponentProps" : {
                   "disabled" : false,
                   "helperText" : "",
+                  "hideLabel" : false,
                   "inputType" : "text",
                   "invalid" : true,
                   "invalidText" : "Invalid text",
                   "labelText" : "Invalid",
                   "placeholder" : "Placeholder",
-                  "showPasswordLabel" : "Show Password"
+                  "showPasswordLabel" : "Show Password",
+                  "value" : "TextInput Value"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -9223,12 +9278,14 @@
                 "codeComponentProps" : {
                   "disabled" : false,
                   "helperText" : "",
+                  "hideLabel" : false,
                   "inputType" : "password",
                   "invalid" : false,
                   "invalidText" : "Invalid text",
                   "labelText" : "Password",
                   "placeholder" : "Placeholder",
-                  "showPasswordLabel" : "Show Password"
+                  "showPasswordLabel" : "Show Password",
+                  "value" : "TextInput Value"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -9285,12 +9342,14 @@
                 "codeComponentProps" : {
                   "disabled" : true,
                   "helperText" : "",
+                  "hideLabel" : false,
                   "inputType" : "text",
                   "invalid" : false,
                   "invalidText" : "Invalid text",
                   "labelText" : "Disabled",
                   "placeholder" : "Placeholder",
-                  "showPasswordLabel" : "Show Password"
+                  "showPasswordLabel" : "Show Password",
+                  "value" : "TextInput Value"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -9859,8 +9918,11 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "direction" : "bottom",
+              "open" : false,
+              "showIcon" : true,
               "tooltipText" : "This is some tooltip text. This box shows the maximum amount of text that should appear inside. If more room is needed please use a modal instead.",
-              "triggerText" : "Tooltip Right"
+              "triggerText" : "Tooltip Right",
+              "type" : "text"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -9915,8 +9977,11 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "direction" : "top",
+              "open" : false,
+              "showIcon" : true,
               "tooltipText" : "This is some tooltip text. This box shows the maximum amount of text that should appear inside. If more room is needed please use a modal instead.",
-              "triggerText" : "Tooltip Top"
+              "triggerText" : "Tooltip Top",
+              "type" : "text"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -9975,8 +10040,11 @@
 
               ],
               "direction" : "bottom",
+              "open" : false,
+              "showIcon" : true,
               "tooltipText" : "This is some tooltip text. This box shows the maximum amount of text that should appear inside. If more room is needed please use a modal instead.",
-              "triggerText" : "Tooltip Bottom"
+              "triggerText" : "Tooltip Bottom",
+              "type" : "text"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -10033,8 +10101,11 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "direction" : "left",
+              "open" : false,
+              "showIcon" : true,
               "tooltipText" : "This is some tooltip text. This box shows the maximum amount of text that should appear inside. If more room is needed please use a modal instead.",
-              "triggerText" : "Tooltip Left"
+              "triggerText" : "Tooltip Left",
+              "type" : "text"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -10167,7 +10238,9 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "caption" : "Error Notification Caption",
+              "hideCaption" : false,
               "hideCloseButton" : false,
+              "hideSubtitle" : false,
               "kind" : "error",
               "lowContrast" : false,
               "subtitle" : "Error Notification Subtitle",
@@ -10227,7 +10300,9 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "caption" : "Info Notification Caption",
+              "hideCaption" : false,
               "hideCloseButton" : false,
+              "hideSubtitle" : false,
               "kind" : "info",
               "lowContrast" : false,
               "subtitle" : "Info Notification Subtitle",
@@ -10288,7 +10363,9 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "caption" : "Success Notification Caption",
+              "hideCaption" : false,
               "hideCloseButton" : true,
+              "hideSubtitle" : false,
               "kind" : "success",
               "lowContrast" : false,
               "subtitle" : "Success Notification Subtitle",
@@ -10350,7 +10427,9 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "caption" : "",
+              "hideCaption" : false,
               "hideCloseButton" : true,
+              "hideSubtitle" : false,
               "kind" : "success",
               "lowContrast" : true,
               "subtitle" : "",
@@ -10413,7 +10492,9 @@
             "codeComponentPackageVersion" : "1.71.0",
             "codeComponentProps" : {
               "caption" : "",
+              "hideCaption" : false,
               "hideCloseButton" : true,
+              "hideSubtitle" : false,
               "kind" : "success",
               "lowContrast" : true,
               "subtitle" : "",
