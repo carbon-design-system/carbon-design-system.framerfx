@@ -13,7 +13,7 @@ const InnerTag = (props) => {
 export const Tag = withHOC(InnerTag)
 
 Tag.defaultProps = {
-  width: 71,
+  width: 76,
   height: 32,
 }
 
