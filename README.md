@@ -24,11 +24,16 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.9.0 - 03/08/2020**
+
+- Added a color property control to the `Typography` component
+- Typography styles are now sorted alphabetically
+
+## Previous Releases
+
 ### **1.8.0 - 30/07/2020**
 
 - Added a basic `Typography` component with text styles inherited from `@carbon/type`
-
-## Previous Releases
 
 ### **1.7.0 - 30/07/2020**
 
