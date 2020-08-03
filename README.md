@@ -18,6 +18,22 @@ If you cannot control a certain property of a component using Framer's [Property
 
 Theming support is coming soon.
 
+## Forking this project
+
+If you would like to base your Framer package off of this one, you can fork this repository.
+
+By default, when you open the project in Framer Desktop, it will be automaticaly linked to the [public Framer package](https://packages.framer.com/package/iain/carbon-design-system) for Carbon. This will mean you'll be unable to publish any updates to it, or publish it to your [private team packages](https://www.framer.com/support/using-framer/packages/).
+
+By executing a small bash script included with this project, you can strip away any metadata that references this project to an existing Framer package, allowing you to publish it yourself to a different location.
+
+1. Ensure you have [jq](https://stedolan.github.io/jq/) installed and in your system's `$PATH`
+2. Fork this repository
+3. Run `yarn run fork`
+4. This will remove the `framer`, `name` and `version` keys from `package.json`
+5. Open this project in Framer Desktop
+6. Click **_File -> Publish Package_**
+7. You should now be able to publish this project to a new package
+
 ## Issues/Bugs
 
 This project is currently being maintained by [Iain](https://github.com/iKettles) from the Framer Team. Feel free to create an issue in the [GitHub repository](https://github.com/iKettles/carbon-design-system.framerfx) if you run into any issues.
