@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Remove the framer/version/name keys from package.json
+cat package.json | jq 'del(.framer) | del(.version) | del(.name)' > package.json
