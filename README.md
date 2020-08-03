@@ -28,6 +28,8 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 - Added a basic `Typography` component with text styles inherited from `@carbon/type`
 
+## Previous Releases
+
 ### **1.7.0 - 30/07/2020**
 
 - Added the [Carbon color palette](https://www.carbondesignsystem.com/guidelines/color/overview/) as [Framer Shared Colors](https://www.framer.com/support/using-framer/shared-colors/)
@@ -47,8 +49,6 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 - Fixed a bug that caused connected content to the `Tooltip` component to render incorrectly
 - Added a default show/hide property control to the `Tooltip` component. This will not display on the canvas due to it using a React Portal which causes it to be absolutely positioned on the canvas.
 - Reduced the noise created by components logging events
-
-## Previous Releases
 
 ### **1.6.0 - 06/07/2020**
 
