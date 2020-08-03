@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Frame, addPropertyControls, ControlType } from "framer"
 import { styles } from "@carbon/type"
+import { omitIrrelevantProps } from "./utils/props"
 
 type Breakpoint = "max" | "xlg" | "lg" | "md"
 
@@ -15,7 +16,11 @@ interface CarbonTextStyle {
 const carbonStyles = styles as Record<string, CarbonTextStyle>
 
 export function Typography(props) {
-  const { text, style, fontFamily, ...rest } = props
+  const { text, style, color, fontFamily, ...rest } = omitIrrelevantProps(props)
+
+  if (!styles[style]) {
+    throw new Error(`Unknown style: ${style}`)
+  }
 
   return (
     <div
@@ -23,6 +28,7 @@ export function Typography(props) {
       style={{
         ...styles[style],
         fontFamily,
+        color,
       }}
     >
       {text}
@@ -35,7 +41,7 @@ Typography.defaultProps = {
   width: 253,
 }
 
-const styleOptions = Object.keys(carbonStyles)
+const styleOptions = Object.keys(carbonStyles).sort()
 
 // Learn more: https://framer.com/api/property-controls/
 addPropertyControls(Typography, {
@@ -44,6 +50,11 @@ addPropertyControls(Typography, {
     type: ControlType.String,
     defaultValue: "Hello Framer!",
     displayTextArea: true,
+  },
+  color: {
+    title: "Color",
+    type: ControlType.Color,
+    defaultValue: "#000",
   },
   fontFamily: {
     title: "Font",
