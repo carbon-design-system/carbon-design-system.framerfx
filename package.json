@@ -8,10 +8,6 @@
 		"framer": "^1.0",
 		"react": "^16.8"
 	},
-	"framer": {
-		"id": "685229ad-b1bc-44a0-8ef1-5ca2ba8bf411",
-		"displayName": "Carbon Design System"
-	},
 	"author": "Iain Kettles",
 	"dependencies": {
 		"@carbon/icons-react": "^10.10.1",
@@ -22,9 +18,13 @@
 		"carbon-icons": "^7.0.7",
 		"prop-types": "^15.7.2"
 	},
-	"name": "@framer/iain.carbon-design-system",
-	"version": "1.13.0",
 	"scripts": {
 		"fork": "scripts/fork"
-	}
+	},
+	"framer": {
+		"id": "40794396-ed15-4821-9b33-17a16f6ed1c6",
+		"displayName": "Carbon Design System - Beta"
+	},
+	"name": "@framer/iain.carbon-design-system-beta",
+	"version": "1.0.0"
 }

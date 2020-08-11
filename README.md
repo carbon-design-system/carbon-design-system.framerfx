@@ -1,6 +1,6 @@
-# Carbon Design System
+# Carbon Design System - Beta
 
-This package implements the [Carbon Design System](https://www.carbondesignsystem.com/) from IBM in Framer.
+This package implements the [Carbon Design System](https://www.carbondesignsystem.com/) from IBM in Framer. This is the Beta version of the package and reflects the next release of the [stable version](https://packages.framer.com/package/iain/carbon-design-system)
 
 ## Components
 
