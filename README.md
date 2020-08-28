@@ -40,6 +40,10 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.10.0 - 28/08/2020**
+
+- Added support for the White, G10, G90 and G100 themes. Place the `ThemeSwitcher` component on the canvas of your prototype and switch the theme in the properties panel to preview your components
+
 ### **1.9.0 - 03/08/2020**
 
 - Added a color property control to the `Typography` component
