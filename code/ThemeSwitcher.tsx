@@ -1,6 +1,6 @@
 import * as React from "react"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
-import { themes, formatThemeName, switchTheme, DEFAULT_THEME } from "./theme"
+import { themes, formatThemeName, switchTheme, DEFAULT_THEME } from "./utils/theme"
 
 const containerStyle: React.CSSProperties = {
   padding: 16,
