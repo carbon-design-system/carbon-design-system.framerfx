@@ -1,10 +1,10 @@
-import { url } from "framer/resource"
+const CDN_BASE_URL = "https://static.ikettl.es/carbon"
 
 export const themes = {
-  whiteTheme: url("./assets/theme-white.css"),
-  g10Theme: url("./assets/theme-g10.css"),
-  g90Theme: url("./assets/theme-g90.css"),
-  g100Theme: url("./assets/theme-g100.css"),
+  whiteTheme: `${CDN_BASE_URL}/theme-white.css`,
+  g10Theme: `${CDN_BASE_URL}/theme-g10.css`,
+  g90Theme: `${CDN_BASE_URL}/theme-g90.css`,
+  g100Theme: `${CDN_BASE_URL}/theme-g100.css`,
 }
 
 export const DEFAULT_THEME: keyof typeof themes = "whiteTheme"

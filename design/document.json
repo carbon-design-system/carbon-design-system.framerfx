@@ -13900,7 +13900,7 @@
             "codeComponentIdentifier" : ".\/ThemeSwitcher.tsx_ThemeSwitcher",
             "codeComponentPackageVersion" : null,
             "codeComponentProps" : {
-              "theme" : "whiteTheme"
+              "theme" : "g100Theme"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,

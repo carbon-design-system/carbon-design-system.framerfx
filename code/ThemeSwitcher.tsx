@@ -4,6 +4,7 @@ import { themes, formatThemeName, switchTheme, DEFAULT_THEME } from "./utils/the
 
 const containerStyle: React.CSSProperties = {
   padding: 16,
+  color: "#09F",
 }
 
 export const ThemeSwitcher = (props) => {
