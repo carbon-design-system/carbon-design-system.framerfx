@@ -16,7 +16,7 @@ If you cannot control a certain property of a component using Framer's [Property
 
 ## Theming
 
-Theming support is coming soon.
+Basic support for the White, G10, G90 and G100 themes is included. Drop the `ThemeSwitcher` component on the canvas and use the property controls to select the theme that's used across your prototype.
 
 ## Forking this project
 
@@ -39,6 +39,10 @@ By executing a small bash script included with this project, you can strip away 
 This project is currently being maintained by [Iain](https://github.com/iKettles) from the Framer Team. Feel free to create an issue in the [GitHub repository](https://github.com/iKettles/carbon-design-system.framerfx) if you run into any issues.
 
 ## Latest Release
+
+### **1.11.0 - 04/09/2020**
+
+- Fixed a bug that prevented theme stylesheets from loading in some cases on Framer Web
 
 ### **1.10.0 - 28/08/2020**
 
