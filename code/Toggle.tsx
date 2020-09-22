@@ -26,7 +26,7 @@ const InnerToggle = (props) => {
   const ToggleTag = variant === "small" ? System.ToggleSmall : System.Toggle
 
   return (
-    <ToggleTag {...rest} id={`${rest.id}-checkbox`} aria-label={"Toggle"} onToggle={onToggle} value={currentValue} />
+    <ToggleTag {...rest} id={`${rest.id}-checkbox`} aria-label={"Toggle"} toggled={currentValue} onToggle={onToggle} />
   )
 }
 
