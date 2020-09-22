@@ -40,6 +40,10 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.12.0 - 22/09/2020**
+
+- Locked the version used for `carbon-components-react` to `7.11.0`
+
 ### **1.11.0 - 04/09/2020**
 
 - Fixed a bug that prevented theme stylesheets from loading in some cases on Framer Web
