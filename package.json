@@ -18,7 +18,7 @@
 		"@carbon/type": "^10.13.0",
 		"@framer/framer.default": "^1.71.0",
 		"carbon-components": "^10.11.1",
-		"carbon-components-react": "^7.11.1",
+		"carbon-components-react": "7.11.1",
 		"carbon-icons": "^7.0.7",
 		"prop-types": "^15.7.2"
 	},

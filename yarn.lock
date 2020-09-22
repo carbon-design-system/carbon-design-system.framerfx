@@ -52,7 +52,7 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-carbon-components-react@^7.11.1:
+carbon-components-react@7.11.1:
   version "7.11.1"
   resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.11.1.tgz#a6564849098c16df3a30e74c0bd0e78fb8035958"
   integrity sha512-BafINpDUPMn0ofkVSUzTm2osWMV9Wk8GLjCtvRN+HIqryPvo5OC5cC4aeSfLTK+Tv+oK1EBYEKSjYAInp3bCVA==
