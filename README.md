@@ -40,6 +40,11 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.13.0 - 22/09/2020**
+
+- Suppressed warnings in the console from unexpected DOM attributes
+- Fixed a bug that caused the `Toggle` component not to set its state correctly
+
 ### **1.12.0 - 22/09/2020**
 
 - Locked the version used for `carbon-components-react` to `7.11.0`
