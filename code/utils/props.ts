@@ -5,6 +5,7 @@ export function omitIrrelevantProps(props: Record<any, any>) {
     assetMapHash: ___,
     __layoutId: ____,
     selectionMode: _____,
+    forceRender: ______,
     ...rest
   } = props
   return rest
