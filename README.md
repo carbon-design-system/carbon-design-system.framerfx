@@ -40,6 +40,12 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.14.0 - 07/10/2020**
+
+- Fixed the currently selected theme not persisting to the preview window or prototype link
+
+## Previous Releases
+
 ### **1.13.0 - 22/09/2020**
 
 - Suppressed warnings in the console from unexpected DOM attributes
@@ -61,8 +67,6 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 - Added a color property control to the `Typography` component
 - Typography styles are now sorted alphabetically
-
-## Previous Releases
 
 ### **1.8.0 - 30/07/2020**
 
