@@ -1,5 +1,9 @@
 const CDN_BASE_URL = "https://static.ikettl.es/carbon"
 
+export let currentTheme = getCurrentTheme()
+export const CARBON_THEME_KEY = "CARBON_THEME"
+export const DEFAULT_THEME: keyof typeof themes = "whiteTheme"
+
 export const themes = {
   whiteTheme: `${CDN_BASE_URL}/theme-white.css`,
   g10Theme: `${CDN_BASE_URL}/theme-g10.css`,
@@ -7,7 +11,9 @@ export const themes = {
   g100Theme: `${CDN_BASE_URL}/theme-g100.css`,
 }
 
-export const DEFAULT_THEME: keyof typeof themes = "whiteTheme"
+export function getCurrentTheme() {
+  return window.localStorage.getItem(CARBON_THEME_KEY) || DEFAULT_THEME
+}
 
 export function formatThemeName(themeName: string) {
   return themeName.split("Theme")[0]
