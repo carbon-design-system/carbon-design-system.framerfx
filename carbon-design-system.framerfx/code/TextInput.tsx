@@ -4,6 +4,7 @@ import { addPropertyControls, ControlType, Stack } from "framer"
 import { useManagedState } from "./utils/useManagedState"
 import { omitIrrelevantProps, propsWithoutChildren } from "./utils/props"
 import { withHOC } from "./withHOC"
+import { indentPropertyControlTitle } from "./utils/propertyControls"
 
 const InnerTextInput = (props) => {
   const {
@@ -81,7 +82,7 @@ addPropertyControls(TextInput, {
     defaultValue: false,
   },
   labelText: {
-    title: "‎↳ Text",
+    title: indentPropertyControlTitle("‎Text"),
     type: ControlType.String,
     defaultValue: "Label Text",
     hidden: (props: any) => props.hideLabel,

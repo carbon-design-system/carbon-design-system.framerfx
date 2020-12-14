@@ -4,6 +4,7 @@ import { ControlType, PropertyControls, addPropertyControls, RenderTarget } from
 import { withHOC } from "./withHOC"
 import { startCase } from "./utils"
 import { omitIrrelevantProps } from "./utils/props"
+import { indentPropertyControlTitle } from "./utils/propertyControls"
 
 const timeoutRenderTargets = [RenderTarget.preview, RenderTarget.export]
 
@@ -57,7 +58,7 @@ addPropertyControls(ToastNotification, {
     defaultValue: false,
   },
   subtitle: {
-    title: "↳ Text",
+    title: indentPropertyControlTitle("Text"),
     type: ControlType.String,
     defaultValue: "Notification Subtitle",
     hidden: (props: any) => props.hideSubtitle,
@@ -70,7 +71,7 @@ addPropertyControls(ToastNotification, {
     defaultValue: false,
   },
   caption: {
-    title: "↳ Text",
+    title: indentPropertyControlTitle("Text"),
     type: ControlType.String,
     defaultValue: "Notification Caption",
     hidden: (props: any) => props.hideCaption,

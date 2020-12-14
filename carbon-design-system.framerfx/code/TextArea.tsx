@@ -4,6 +4,7 @@ import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
 import { useManagedState } from "./utils/useManagedState"
+import { indentPropertyControlTitle } from "./utils/propertyControls"
 
 const InnerTextArea = (props) => {
   const { value, onChange, isLoading, labelText, ...rest } = omitIrrelevantProps(props)
@@ -42,7 +43,7 @@ addPropertyControls(TextArea, {
     defaultValue: false,
   },
   labelText: {
-    title: "‎↳ Text",
+    title: indentPropertyControlTitle("Text"),
     type: ControlType.String,
     defaultValue: "Label Text",
     hidden: (props: any) => props.hideLabel,
