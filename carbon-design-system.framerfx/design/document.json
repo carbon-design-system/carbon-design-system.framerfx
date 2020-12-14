@@ -10730,9 +10730,9 @@
               {
                 "__class" : "FrameNode",
                 "aspectRatio" : null,
-                "bottom" : null,
-                "centerAnchorX" : 0.20943708609271522,
-                "centerAnchorY" : 0.47943037974683544,
+                "bottom" : -16,
+                "centerAnchorX" : 0.3924825174825175,
+                "centerAnchorY" : 0.55633802816901412,
                 "children" : [
                   {
                     "__class" : "CodeComponentNode",
@@ -11087,7 +11087,7 @@
                 "stackDistribution" : "space-evenly",
                 "stackEnabled" : true,
                 "stackGap" : 10,
-                "top" : 16,
+                "top" : null,
                 "visible" : true,
                 "width" : 1,
                 "widthType" : 3
@@ -16633,7 +16633,7 @@
                     },
                     "$control__max" : {
                       "type" : "number",
-                      "value" : 100
+                      "value" : 8
                     },
                     "$control__maxLabel" : {
                       "type" : "string",
@@ -16641,7 +16641,7 @@
                     },
                     "$control__min" : {
                       "type" : "number",
-                      "value" : 0
+                      "value" : 1
                     },
                     "$control__minLabel" : {
                       "type" : "string",
@@ -16661,15 +16661,15 @@
                     },
                     "$control__showLabel" : {
                       "type" : "boolean",
-                      "value" : false
+                      "value" : true
                     },
                     "$control__showMaxLabel" : {
                       "type" : "boolean",
-                      "value" : true
+                      "value" : false
                     },
                     "$control__showMinLabel" : {
                       "type" : "boolean",
-                      "value" : true
+                      "value" : false
                     },
                     "$control__showTextInput" : {
                       "type" : "boolean",
@@ -16681,7 +16681,7 @@
                     },
                     "$control__value" : {
                       "type" : "number",
-                      "value" : 50
+                      "value" : 6
                     },
                     "aspectRatio" : null,
                     "bottom" : null,
