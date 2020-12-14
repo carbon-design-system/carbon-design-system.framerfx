@@ -40,11 +40,15 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.18.0 - 14/12/2020**
+
+- Allow Select component to have a fluid width
+
+## Previous Releases
+
 ### **1.17.0 - 14/12/2020**
 
 - Fix Slider component not updating when the value property control was changed
-
-## Previous Releases
 
 ### **1.16.0 - 14/12/2020**
 
