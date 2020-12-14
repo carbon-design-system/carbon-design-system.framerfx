@@ -40,11 +40,15 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.19.0 - 14/12/2020**
+
+- Allow Button component to have a fluid width
+
+## Previous Releases
+
 ### **1.18.0 - 14/12/2020**
 
 - Allow Select component to have a fluid width
-
-## Previous Releases
 
 ### **1.17.0 - 14/12/2020**
 
