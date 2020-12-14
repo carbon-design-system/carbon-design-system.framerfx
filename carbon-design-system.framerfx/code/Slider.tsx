@@ -40,9 +40,9 @@ const InnerSlider = (props) => {
       value={currentValue}
       max={max}
       min={min}
-      labelText={showLabel && labelText}
-      minLabel={showMinLabel && minLabel}
-      maxLabel={showMaxLabel && maxLabel}
+      labelText={showLabel ? labelText : undefined}
+      minLabel={showMinLabel ? minLabel : undefined}
+      maxLabel={showMaxLabel ? maxLabel : undefined}
       hideTextInput={!showTextInput}
       onChange={handleChange}
       onRelease={onRelease}
