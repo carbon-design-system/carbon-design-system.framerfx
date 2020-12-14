@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as System from "carbon-components-react"
-import { ControlType, addPropertyControls } from "framer"
+import { ControlType, addPropertyControls, RenderTarget } from "framer"
 import { withHOC } from "./withHOC"
 import { omitIrrelevantProps } from "./utils/props"
 import { useManagedState } from "./utils/useManagedState"
@@ -8,6 +8,7 @@ import { indentPropertyControlTitle } from "./utils/propertyControls"
 
 const InnerSlider = (props) => {
   const {
+    id,
     value,
     max,
     min,
@@ -25,6 +26,13 @@ const InnerSlider = (props) => {
     ...rest
   } = omitIrrelevantProps(props)
   const [currentValue, setCurrentValue] = useManagedState(value, onChange)
+  const rerenderKey = React.useMemo(() => {
+    if (RenderTarget.current() !== RenderTarget.canvas) {
+      return id
+    }
+    // The Carbon slider doesn't re-render when the value prop is changed, so we'll force it through a key
+    return `${id}-${currentValue}`
+  }, [id, currentValue])
   const handleChange = React.useCallback(
     ({ value: updatedValue }) => {
       setCurrentValue(updatedValue)
@@ -37,6 +45,7 @@ const InnerSlider = (props) => {
   return (
     <System.Slider
       {...rest}
+      key={rerenderKey}
       value={currentValue}
       max={max}
       min={min}
