@@ -40,12 +40,16 @@ This project is currently being maintained by [Iain](https://github.com/iKettles
 
 ## Latest Release
 
+### **1.17.0 - 14/12/2020**
+
+- Fix Slider component not updating when the value property control was changed
+
+## Previous Releases
+
 ### **1.16.0 - 14/12/2020**
 
 - Allow Slider component to have a fluid width
 - Fix a weird state that could happen when enabling/disabling min and max labels for the Slider component
-
-## Previous Releases
 
 ### **1.15.0 - 14/12/2020**
 

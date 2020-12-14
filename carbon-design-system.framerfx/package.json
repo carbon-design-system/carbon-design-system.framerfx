@@ -23,7 +23,7 @@
 		"prop-types": "^15.7.2"
 	},
 	"name": "@framer/iain.carbon-design-system",
-	"version": "1.16.0",
+	"version": "1.17.0",
 	"scripts": {
 		"fork": "scripts/fork"
 	}
