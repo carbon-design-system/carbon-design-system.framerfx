@@ -16602,6 +16602,854 @@
             "visible" : true,
             "width" : 289,
             "widthType" : 0
+          },
+          {
+            "__class" : "FrameNode",
+            "aspectRatio" : null,
+            "bottom" : null,
+            "centerAnchorX" : 0,
+            "centerAnchorY" : 0,
+            "children" : [
+              {
+                "__class" : "FrameNode",
+                "aspectRatio" : null,
+                "bottom" : null,
+                "centerAnchorX" : 0.44061962134251292,
+                "centerAnchorY" : 0.50637755102040816,
+                "children" : [
+                  {
+                    "__class" : "CodeComponentNode",
+                    "$control__disabled" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__labelText" : {
+                      "type" : "string",
+                      "value" : "Label Text"
+                    },
+                    "$control__light" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__max" : {
+                      "type" : "number",
+                      "value" : 100
+                    },
+                    "$control__maxLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__min" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "$control__minLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__onChange" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMax" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMin" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onRelease" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__showLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMaxLabel" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__showMinLabel" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__showTextInput" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__step" : {
+                      "type" : "number",
+                      "value" : 1
+                    },
+                    "$control__value" : {
+                      "type" : "number",
+                      "value" : 50
+                    },
+                    "aspectRatio" : null,
+                    "bottom" : null,
+                    "centerAnchorX" : 0.5,
+                    "centerAnchorY" : 0.065395095367847406,
+                    "clip" : true,
+                    "codeComponentIdentifier" : ".\/Slider.tsx_Slider",
+                    "codeComponentPackageVersion" : "1.71.0",
+                    "codeOverrideEnabled" : false,
+                    "constraintsLocked" : false,
+                    "duplicatedFrom" : [
+                      "g0g3Ex2cn"
+                    ],
+                    "exportOptions" : [
+
+                    ],
+                    "fillColor" : "rgba(255,255,255,1)",
+                    "fillEnabled" : false,
+                    "fillImage" : null,
+                    "fillImageOriginalName" : null,
+                    "fillImagePixelHeight" : null,
+                    "fillImagePixelWidth" : null,
+                    "fillImageResize" : "fill",
+                    "fillType" : "color",
+                    "height" : 48,
+                    "heightType" : 0,
+                    "id" : "Es7GL3eW3",
+                    "intrinsicHeight" : 54,
+                    "intrinsicWidth" : 365,
+                    "left" : null,
+                    "locked" : false,
+                    "name" : null,
+                    "opacity" : 1,
+                    "originalid" : null,
+                    "parentid" : "QeeWUABkD",
+                    "previewSettings" : null,
+                    "radius" : 0,
+                    "radiusBottomLeft" : 0,
+                    "radiusBottomRight" : 0,
+                    "radiusIsRelative" : false,
+                    "radiusPerCorner" : false,
+                    "radiusTopLeft" : 0,
+                    "radiusTopRight" : 0,
+                    "right" : null,
+                    "rotation" : 0,
+                    "top" : 0,
+                    "visible" : true,
+                    "width" : 1,
+                    "widthType" : 3
+                  },
+                  {
+                    "__class" : "CodeComponentNode",
+                    "$control__disabled" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__labelText" : {
+                      "type" : "string",
+                      "value" : "Label Text"
+                    },
+                    "$control__light" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__max" : {
+                      "type" : "number",
+                      "value" : 100
+                    },
+                    "$control__maxLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__min" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "$control__minLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__onChange" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMax" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMin" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onRelease" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__showLabel" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__showMaxLabel" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__showMinLabel" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__showTextInput" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__step" : {
+                      "type" : "number",
+                      "value" : 1
+                    },
+                    "$control__value" : {
+                      "type" : "number",
+                      "value" : 50
+                    },
+                    "aspectRatio" : null,
+                    "bottom" : null,
+                    "centerAnchorX" : 0.5,
+                    "centerAnchorY" : 0.23705722070844687,
+                    "clip" : true,
+                    "codeComponentIdentifier" : ".\/Slider.tsx_Slider",
+                    "codeComponentPackageVersion" : "1.71.0",
+                    "codeOverrideEnabled" : false,
+                    "constraintsLocked" : false,
+                    "duplicatedFrom" : [
+                      "g0g3Ex2cn",
+                      "Es7GL3eW3"
+                    ],
+                    "exportOptions" : [
+
+                    ],
+                    "fillColor" : "rgba(255,255,255,1)",
+                    "fillEnabled" : false,
+                    "fillImage" : null,
+                    "fillImageOriginalName" : null,
+                    "fillImagePixelHeight" : null,
+                    "fillImagePixelWidth" : null,
+                    "fillImageResize" : "fill",
+                    "fillType" : "color",
+                    "height" : 64,
+                    "heightType" : 0,
+                    "id" : "qSGtOwpjy",
+                    "intrinsicHeight" : 54,
+                    "intrinsicWidth" : 365,
+                    "left" : null,
+                    "locked" : false,
+                    "name" : null,
+                    "opacity" : 1,
+                    "originalid" : null,
+                    "parentid" : "QeeWUABkD",
+                    "previewSettings" : null,
+                    "radius" : 0,
+                    "radiusBottomLeft" : 0,
+                    "radiusBottomRight" : 0,
+                    "radiusIsRelative" : false,
+                    "radiusPerCorner" : false,
+                    "radiusTopLeft" : 0,
+                    "radiusTopRight" : 0,
+                    "right" : null,
+                    "rotation" : 0,
+                    "top" : 55,
+                    "visible" : true,
+                    "width" : 1,
+                    "widthType" : 3
+                  },
+                  {
+                    "__class" : "CodeComponentNode",
+                    "$control__disabled" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__labelText" : {
+                      "type" : "string",
+                      "value" : "Label Text"
+                    },
+                    "$control__light" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__max" : {
+                      "type" : "number",
+                      "value" : 100
+                    },
+                    "$control__maxLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__min" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "$control__minLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__onChange" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMax" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMin" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onRelease" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__showLabel" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__showMaxLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMinLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showTextInput" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__step" : {
+                      "type" : "number",
+                      "value" : 1
+                    },
+                    "$control__value" : {
+                      "type" : "number",
+                      "value" : 50
+                    },
+                    "aspectRatio" : null,
+                    "bottom" : null,
+                    "centerAnchorX" : 0.5,
+                    "centerAnchorY" : 0.4305177111716621,
+                    "clip" : true,
+                    "codeComponentIdentifier" : ".\/Slider.tsx_Slider",
+                    "codeComponentPackageVersion" : "1.71.0",
+                    "codeOverrideEnabled" : false,
+                    "constraintsLocked" : false,
+                    "duplicatedFrom" : [
+                      "g0g3Ex2cn",
+                      "Es7GL3eW3",
+                      "qSGtOwpjy"
+                    ],
+                    "exportOptions" : [
+
+                    ],
+                    "fillColor" : "rgba(255,255,255,1)",
+                    "fillEnabled" : false,
+                    "fillImage" : null,
+                    "fillImageOriginalName" : null,
+                    "fillImagePixelHeight" : null,
+                    "fillImagePixelWidth" : null,
+                    "fillImageResize" : "fill",
+                    "fillType" : "color",
+                    "height" : 64,
+                    "heightType" : 0,
+                    "id" : "MtioCTEgl",
+                    "intrinsicHeight" : 54,
+                    "intrinsicWidth" : 365,
+                    "left" : null,
+                    "locked" : false,
+                    "name" : null,
+                    "opacity" : 1,
+                    "originalid" : null,
+                    "parentid" : "QeeWUABkD",
+                    "previewSettings" : null,
+                    "radius" : 0,
+                    "radiusBottomLeft" : 0,
+                    "radiusBottomRight" : 0,
+                    "radiusIsRelative" : false,
+                    "radiusPerCorner" : false,
+                    "radiusTopLeft" : 0,
+                    "radiusTopRight" : 0,
+                    "right" : null,
+                    "rotation" : 0,
+                    "top" : 126,
+                    "visible" : true,
+                    "width" : 1,
+                    "widthType" : 3
+                  },
+                  {
+                    "__class" : "CodeComponentNode",
+                    "$control__disabled" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__labelText" : {
+                      "type" : "string",
+                      "value" : "Label Text"
+                    },
+                    "$control__light" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__max" : {
+                      "type" : "number",
+                      "value" : 100
+                    },
+                    "$control__maxLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__min" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "$control__minLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__onChange" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMax" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMin" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onRelease" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__showLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMaxLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMinLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showTextInput" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__step" : {
+                      "type" : "number",
+                      "value" : 1
+                    },
+                    "$control__value" : {
+                      "type" : "number",
+                      "value" : 50
+                    },
+                    "aspectRatio" : null,
+                    "bottom" : 142,
+                    "centerAnchorX" : 0.5,
+                    "centerAnchorY" : 0.57493188010899188,
+                    "clip" : true,
+                    "codeComponentIdentifier" : ".\/Slider.tsx_Slider",
+                    "codeComponentPackageVersion" : "1.71.0",
+                    "codeOverrideEnabled" : false,
+                    "constraintsLocked" : false,
+                    "duplicatedFrom" : [
+                      "g0g3Ex2cn",
+                      "Es7GL3eW3",
+                      "qSGtOwpjy",
+                      "MtioCTEgl"
+                    ],
+                    "exportOptions" : [
+
+                    ],
+                    "fillColor" : "rgba(255,255,255,1)",
+                    "fillEnabled" : false,
+                    "fillImage" : null,
+                    "fillImageOriginalName" : null,
+                    "fillImagePixelHeight" : null,
+                    "fillImagePixelWidth" : null,
+                    "fillImageResize" : "fill",
+                    "fillType" : "color",
+                    "height" : 28,
+                    "heightType" : 0,
+                    "id" : "qisUSaRBY",
+                    "intrinsicHeight" : 54,
+                    "intrinsicWidth" : 365,
+                    "left" : null,
+                    "locked" : false,
+                    "name" : null,
+                    "opacity" : 1,
+                    "originalid" : null,
+                    "parentid" : "QeeWUABkD",
+                    "previewSettings" : null,
+                    "radius" : 0,
+                    "radiusBottomLeft" : 0,
+                    "radiusBottomRight" : 0,
+                    "radiusIsRelative" : false,
+                    "radiusPerCorner" : false,
+                    "radiusTopLeft" : 0,
+                    "radiusTopRight" : 0,
+                    "right" : null,
+                    "rotation" : 0,
+                    "top" : null,
+                    "visible" : true,
+                    "width" : 1,
+                    "widthType" : 3
+                  },
+                  {
+                    "__class" : "CodeComponentNode",
+                    "$control__disabled" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__labelText" : {
+                      "type" : "string",
+                      "value" : "Label Text"
+                    },
+                    "$control__light" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__max" : {
+                      "type" : "number",
+                      "value" : 100
+                    },
+                    "$control__maxLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__min" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "$control__minLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__onChange" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMax" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMin" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onRelease" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__showLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMaxLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMinLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showTextInput" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__step" : {
+                      "type" : "number",
+                      "value" : 1
+                    },
+                    "$control__value" : {
+                      "type" : "number",
+                      "value" : 50
+                    },
+                    "aspectRatio" : null,
+                    "bottom" : 107,
+                    "centerAnchorX" : 0.5,
+                    "centerAnchorY" : 0.67029972752043598,
+                    "clip" : true,
+                    "codeComponentIdentifier" : ".\/Slider.tsx_Slider",
+                    "codeComponentPackageVersion" : "1.71.0",
+                    "codeOverrideEnabled" : false,
+                    "constraintsLocked" : false,
+                    "duplicatedFrom" : [
+                      "g0g3Ex2cn",
+                      "Es7GL3eW3",
+                      "qSGtOwpjy",
+                      "MtioCTEgl",
+                      "qisUSaRBY"
+                    ],
+                    "exportOptions" : [
+
+                    ],
+                    "fillColor" : "rgba(255,255,255,1)",
+                    "fillEnabled" : false,
+                    "fillImage" : null,
+                    "fillImageOriginalName" : null,
+                    "fillImagePixelHeight" : null,
+                    "fillImagePixelWidth" : null,
+                    "fillImageResize" : "fill",
+                    "fillType" : "color",
+                    "height" : 28,
+                    "heightType" : 0,
+                    "id" : "xqIc30eaM",
+                    "intrinsicHeight" : 54,
+                    "intrinsicWidth" : 365,
+                    "left" : null,
+                    "locked" : false,
+                    "name" : null,
+                    "opacity" : 1,
+                    "originalid" : null,
+                    "parentid" : "QeeWUABkD",
+                    "previewSettings" : null,
+                    "radius" : 0,
+                    "radiusBottomLeft" : 0,
+                    "radiusBottomRight" : 0,
+                    "radiusIsRelative" : false,
+                    "radiusPerCorner" : false,
+                    "radiusTopLeft" : 0,
+                    "radiusTopRight" : 0,
+                    "right" : null,
+                    "rotation" : 0,
+                    "top" : null,
+                    "visible" : true,
+                    "width" : 1,
+                    "widthType" : 3
+                  },
+                  {
+                    "__class" : "CodeComponentNode",
+                    "$control__disabled" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__labelText" : {
+                      "type" : "string",
+                      "value" : "Label Text"
+                    },
+                    "$control__light" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__max" : {
+                      "type" : "number",
+                      "value" : 100
+                    },
+                    "$control__maxLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__min" : {
+                      "type" : "number",
+                      "value" : 0
+                    },
+                    "$control__minLabel" : {
+                      "type" : "string",
+                      "value" : "%"
+                    },
+                    "$control__onChange" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMax" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onReachMin" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__onRelease" : {
+                      "type" : "eventhandler"
+                    },
+                    "$control__showLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMaxLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showMinLabel" : {
+                      "type" : "boolean",
+                      "value" : false
+                    },
+                    "$control__showTextInput" : {
+                      "type" : "boolean",
+                      "value" : true
+                    },
+                    "$control__step" : {
+                      "type" : "number",
+                      "value" : 1
+                    },
+                    "$control__value" : {
+                      "type" : "number",
+                      "value" : 50
+                    },
+                    "aspectRatio" : null,
+                    "bottom" : 52,
+                    "centerAnchorX" : 0.5,
+                    "centerAnchorY" : 0.79291553133514991,
+                    "clip" : true,
+                    "codeComponentIdentifier" : ".\/Slider.tsx_Slider",
+                    "codeComponentPackageVersion" : "1.71.0",
+                    "codeOverrideEnabled" : false,
+                    "constraintsLocked" : false,
+                    "duplicatedFrom" : [
+                      "g0g3Ex2cn",
+                      "Es7GL3eW3",
+                      "qSGtOwpjy",
+                      "MtioCTEgl",
+                      "qisUSaRBY",
+                      "xqIc30eaM"
+                    ],
+                    "exportOptions" : [
+
+                    ],
+                    "fillColor" : "rgba(255,255,255,1)",
+                    "fillEnabled" : false,
+                    "fillImage" : null,
+                    "fillImageOriginalName" : null,
+                    "fillImagePixelHeight" : null,
+                    "fillImagePixelWidth" : null,
+                    "fillImageResize" : "fill",
+                    "fillType" : "color",
+                    "height" : 48,
+                    "heightType" : 0,
+                    "id" : "j3dMBuB13",
+                    "intrinsicHeight" : 54,
+                    "intrinsicWidth" : 365,
+                    "left" : null,
+                    "locked" : false,
+                    "name" : null,
+                    "opacity" : 1,
+                    "originalid" : null,
+                    "parentid" : "QeeWUABkD",
+                    "previewSettings" : null,
+                    "radius" : 0,
+                    "radiusBottomLeft" : 0,
+                    "radiusBottomRight" : 0,
+                    "radiusIsRelative" : false,
+                    "radiusPerCorner" : false,
+                    "radiusTopLeft" : 0,
+                    "radiusTopRight" : 0,
+                    "right" : null,
+                    "rotation" : 0,
+                    "top" : null,
+                    "visible" : true,
+                    "width" : 1,
+                    "widthType" : 3
+                  }
+                ],
+                "clip" : false,
+                "codeOverrideEnabled" : false,
+                "constraintsLocked" : false,
+                "duplicatedFrom" : null,
+                "exportOptions" : [
+
+                ],
+                "fillColor" : "rgba(255,255,255,1)",
+                "fillEnabled" : false,
+                "fillImage" : null,
+                "fillImageOriginalName" : null,
+                "fillImagePixelHeight" : null,
+                "fillImagePixelWidth" : null,
+                "fillImageResize" : "fill",
+                "fillType" : "color",
+                "framePreset" : null,
+                "guidesX" : [
+
+                ],
+                "guidesY" : [
+
+                ],
+                "height" : 1,
+                "heightType" : 3,
+                "id" : "QeeWUABkD",
+                "intrinsicHeight" : null,
+                "intrinsicWidth" : null,
+                "isExternalMaster" : null,
+                "isMaster" : false,
+                "isTarget" : false,
+                "left" : 23,
+                "locked" : false,
+                "name" : null,
+                "opacity" : 1,
+                "originalid" : null,
+                "padding" : 0,
+                "paddingBottom" : 0,
+                "paddingLeft" : 0,
+                "paddingPerSide" : false,
+                "paddingRight" : 0,
+                "paddingTop" : 0,
+                "parentid" : "VQhm58TNI",
+                "previewSettings" : null,
+                "radius" : 0,
+                "radiusBottomLeft" : 0,
+                "radiusBottomRight" : 0,
+                "radiusIsRelative" : false,
+                "radiusPerCorner" : false,
+                "radiusTopLeft" : 0,
+                "radiusTopRight" : 0,
+                "replicaInfo" : null,
+                "right" : null,
+                "rotation" : 0,
+                "stackAlignment" : "start",
+                "stackDirection" : "vertical",
+                "stackDistribution" : "start",
+                "stackEnabled" : true,
+                "stackGap" : 7,
+                "top" : 15,
+                "visible" : true,
+                "width" : 1,
+                "widthType" : 3
+              }
+            ],
+            "clip" : true,
+            "codeOverrideEnabled" : false,
+            "constraintsLocked" : false,
+            "duplicatedFrom" : null,
+            "exportOptions" : [
+
+            ],
+            "fillColor" : "white",
+            "fillEnabled" : true,
+            "fillImage" : null,
+            "fillImageOriginalName" : null,
+            "fillImagePixelHeight" : null,
+            "fillImagePixelWidth" : null,
+            "fillImageResize" : "fill",
+            "fillType" : "color",
+            "framePreset" : null,
+            "guidesX" : [
+
+            ],
+            "guidesY" : [
+
+            ],
+            "height" : 374,
+            "heightType" : 0,
+            "id" : "VQhm58TNI",
+            "intrinsicHeight" : null,
+            "intrinsicWidth" : null,
+            "isExternalMaster" : null,
+            "isMaster" : false,
+            "isScreen" : true,
+            "isTarget" : false,
+            "left" : 449,
+            "locked" : false,
+            "name" : null,
+            "opacity" : 1,
+            "originalid" : null,
+            "padding" : 16,
+            "paddingBottom" : 0,
+            "paddingLeft" : 23,
+            "paddingPerSide" : false,
+            "paddingRight" : 0,
+            "paddingTop" : 0,
+            "parentid" : "kiZ4XXMRH-page",
+            "previewSettings" : null,
+            "radius" : 0,
+            "radiusBottomLeft" : 0,
+            "radiusBottomRight" : 0,
+            "radiusIsRelative" : false,
+            "radiusPerCorner" : false,
+            "radiusTopLeft" : 0,
+            "radiusTopRight" : 0,
+            "replicaInfo" : null,
+            "right" : null,
+            "rotation" : 0,
+            "stackAlignment" : "center",
+            "stackDirection" : "horizontal",
+            "stackDistribution" : "start",
+            "stackEnabled" : true,
+            "stackGap" : 10,
+            "top" : 3174,
+            "visible" : true,
+            "width" : 604,
+            "widthType" : 0
           }
         ],
         "duplicatedFrom" : null,
