@@ -1,3 +1,10 @@
 .bx--slider-container {
   width: 100%;
 }
+
+.bx--select,
+.bx--select-input__wrapper,
+.bx--select-input__wrapper select {
+  width: 100%;
+  max-width: 100% !important;
+}
